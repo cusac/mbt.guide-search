@@ -38,6 +38,7 @@ export type VideoState = {
   searchSegmentsResult: Segment[];
   searchYTVideosResult: YTVideo[];
   searchType: SearchType;
+  searchText: string;
   hasSearched: boolean;
   loadingSegments: boolean;
   loadingVideos: boolean;
@@ -58,6 +59,7 @@ const initalVideoState: VideoState = {
   searchSegmentsResult: [],
   searchYTVideosResult: [],
   searchType: 'segment',
+  searchText: '',
   hasSearched: false,
   loadingSegments: false,
   loadingVideos: false,
@@ -95,6 +97,10 @@ export const videoStore = createSlice({
       const { searchType } = payload;
       state.searchType = searchType;
     },
+    setSearchText(state, { payload }: PayloadAction<{ searchText: string }>) {
+      const { searchText } = payload;
+      state.searchText = searchText;
+    },
     setHasSearched(state, { payload }: PayloadAction<{ hasSearched: boolean }>) {
       const { hasSearched } = payload;
       state.hasSearched = hasSearched;
@@ -127,6 +133,7 @@ export const {
   setSearchSegmentsResult,
   setSearchYTVideosResult,
   setSearchType,
+  setSearchText,
   setHasSearched,
   setLoadingSegments,
   setLoadingVideos,

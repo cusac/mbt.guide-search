@@ -1,23 +1,30 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import ResizeObserver from 'resize-observer-polyfill';
 import {
   RootState,
+  searchSegments,
   setLastViewedSegmentId,
   setLoadingSegments,
   setPreviousView,
+  setSearchText,
   setSearchType,
   setShowSearchbar,
   useAppDispatch,
 } from 'store';
 import * as components from '../../components';
+import LandingPage from '../../components/LandingPage';
 import SegmentViewer from '../../components/SegmentViewer';
 import * as services from '../../services';
 import * as utils from '../../utils';
 import { captureAndLog, toastError } from '../../utils';
-import LandingPage from '../../components/LandingPage';
 
 const { Grid, SegmentList, Loading } = components;
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 const Segments = ({ segmentId }: { segmentId?: string }) => {
   const [error, setError] = React.useState();
@@ -34,6 +41,8 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   const searchSegmentsResult = useSelector((state: RootState) => state.video.searchSegmentsResult);
 
   const dispatch = useAppDispatch();
+
+  const query = useQuery();
 
   const selectSegment = async (selectSegmentId: string) => {
     dispatch(setLastViewedSegmentId({ lastViewedSegmentId: selectSegmentId }));
@@ -68,6 +77,14 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
         dispatch(setLoadingSegments({ loadingSegments: false }));
       }
     }
+
+    const searchTextQuery = query.get('search');
+
+    if (searchTextQuery) {
+      dispatch(setSearchText({ searchText: searchTextQuery }));
+      dispatch(searchSegments({ term: searchTextQuery }));
+    }
+
     // Hardcode a default segment for now
     const currentSegmentId = segmentId ? segmentId : lastViewedSegmentId;
     // !segmentId && selectSegment(currentSegmentId);
@@ -134,7 +151,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
               <Loading>Loading segment...</Loading>
             )}
           </Grid.Column>
-          <Grid.Column style={{ color: 'white' }} verticalAlign="middle" width={4}>
+          <Grid.Column style={{ color: 'white' }} verticalAlign="middle" width={5}>
             {!loadingSegments ? (
               <div>
                 {segments && segments.length > 0 ? (

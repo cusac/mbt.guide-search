@@ -31,7 +31,7 @@
 
 .AppHeader {
   background-color: #282c34;
-  height: 135px;
+  height: 150px;
   position: fixed;
   top: 0;
   right: 0;
@@ -40,8 +40,9 @@
 }
 
 .layout-content {
-  padding-top: 135px;
+  padding-top: 150px;
   padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .video-item {
