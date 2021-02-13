@@ -1,3 +1,4 @@
+import { isEmpty } from 'lodash';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -31,6 +32,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   const [loadingSelectedSegment, setLoadingSelectedSegment] = React.useState(true);
   const [segments, setSegments] = React.useState(undefined as Array<any> | void);
   const [selectedSegment, setSelectedSegment] = React.useState();
+  const [searchTextQuery, setSearchTextQuery] = React.useState('');
   const [videoColumnRef, setVideoColumnRef] = React.useState(
     undefined as HTMLDivElement | undefined
   );
@@ -39,6 +41,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   const lastViewedSegmentId = useSelector((state: RootState) => state.video.lastViewedSegmentId);
   const loadingSegments = useSelector((state: RootState) => state.video.loadingSegments);
   const searchSegmentsResult = useSelector((state: RootState) => state.video.searchSegmentsResult);
+  const searchText = useSelector((state: RootState) => state.video.searchText);
 
   const dispatch = useAppDispatch();
 
@@ -78,11 +81,12 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
       }
     }
 
-    const searchTextQuery = query.get('search');
+    const queryText = query.get('search');
+    setSearchTextQuery(queryText || '');
 
-    if (searchTextQuery) {
-      dispatch(setSearchText({ searchText: searchTextQuery }));
-      dispatch(searchSegments({ term: searchTextQuery }));
+    if (queryText) {
+      dispatch(setSearchText({ searchText: queryText }));
+      dispatch(searchSegments({ term: queryText }));
     }
 
     // Hardcode a default segment for now
@@ -92,8 +96,29 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
     dispatch(setSearchType({ searchType: 'segment' }));
     dispatch(setShowSearchbar({ showSearchbar: true }));
     dispatch(setLastViewedSegmentId({ lastViewedSegmentId: currentSegmentId }));
-    fetchSegments();
+    if (isEmpty(searchSegmentsResult)) {
+      fetchSegments();
+    }
   }, []);
+
+  React.useEffect(() => {
+    const queryText = query.get('search');
+
+    if (queryText && queryText !== searchTextQuery) {
+      setSearchTextQuery(queryText);
+      dispatch(searchSegments({ term: queryText }));
+    }
+  }, [searchText]);
+
+  React.useEffect(() => {
+    const queryText = query.get('search');
+
+    if (queryText !== searchText) {
+      setSearchTextQuery(searchText);
+      const url = segmentId ? `/${segmentId}?search=${searchText}` : `/?search=${searchText}`;
+      utils.history.push(url);
+    }
+  }, [searchSegmentsResult]);
 
   React.useEffect(() => {
     if (videoColumnRef && videoColumnRef.clientHeight) {

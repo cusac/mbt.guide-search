@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import React from 'react';
-import { RootState, setLastViewedSegmentId, useAppDispatch } from 'store';
+import { RootState, setLastViewedSegmentId, setSearchText, useAppDispatch } from 'store';
 import * as components from '../components';
 import { Button, Container, Grid, Icon, Label, Link, List } from '../components';
 import * as utils from '../utils';
@@ -52,9 +52,7 @@ const SegmentViewer = ({ segment }: { segment: any }) => {
             <Grid.Column textAlign="left" width={13}>
               <List horizontal bulleted>
                 <List.Item>
-                  <List.Content>
-                    <Link to={`/${(segment as any).videoYtId}`}>{(segment as any).videoTitle}</Link>
-                  </List.Content>
+                  <List.Content>{(segment as any).videoTitle}</List.Content>
                 </List.Item>
                 <List.Item>
                   <List.Content>
@@ -89,9 +87,17 @@ const SegmentViewer = ({ segment }: { segment: any }) => {
             <Grid.Column textAlign="left" width={13}>
               <List horizontal bulleted>
                 {(segment as any).tags.map((tag: any) => (
-                  <List.Item key={tag.tag._id}>
+                  <List.Item
+                    key={tag.tag._id}
+                    onClick={() => {
+                      utils.history.push(`/${segment.segmentId}?search=${tag.tag.name}`);
+                      dispatch(setSearchText({ searchText: tag.tag.name }));
+                    }}
+                  >
                     <List.Content>
-                      <List.Header>{tag.tag.name}</List.Header>
+                      <List.Header>
+                        <a>{tag.tag.name}</a>
+                      </List.Header>
                     </List.Content>
                   </List.Item>
                 ))}
