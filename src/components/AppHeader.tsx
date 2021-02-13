@@ -42,7 +42,7 @@ const AppHeader = (): any => {
   };
 
   return (
-    <Grid className="AppHeader">
+    <Grid className="AppHeader" centered>
       <Grid.Row style={{ paddingBottom: 0 }}>
         {/* <Grid.Column style={{ color: 'white ' }} verticalAlign="middle" width={4}>
           <Image
@@ -54,7 +54,7 @@ const AppHeader = (): any => {
           />
         </Grid.Column> */}
 
-        <Grid.Column style={{ color: 'white ' }} verticalAlign="middle" floated="right" width={8}>
+        <Grid.Column style={{ color: 'white ' }} verticalAlign="middle" width={8}>
           {showSearchbar && <Searchbar />}
           {!showSearchbar && (
             <Button onClick={() => backToPreviousView()}>
@@ -63,64 +63,7 @@ const AppHeader = (): any => {
             </Button>
           )}
         </Grid.Column>
-
-        {!loading ? (
-          <Grid.Column style={{ color: 'white ' }} verticalAlign="middle" width={6}>
-            {currentUser ? (
-              <div>
-                {'Welcome ' + currentUser.firstName + ' ' + currentUser.lastName + ' !'}
-                <br />
-                {currentUser.email}
-                <br />
-                <Button onClick={() => logoutClick()} style={{ margin: 10 }}>
-                  Sign out
-                </Button>
-              </div>
-            ) : (
-              <Auth setLoading={setLoading} />
-            )}
-          </Grid.Column>
-        ) : (
-          <Header as="h2" icon textAlign="center" style={{ color: 'white ' }}>
-            <Icon loading name="spinner" />
-            <Header.Content>Signing In...</Header.Content>
-          </Header>
-        )}
       </Grid.Row>
-      {/* <Grid.Row columns={3} style={{ paddingTop: 0 }}>
-        <Grid.Column style={{ color: 'white' }} width={6}></Grid.Column>
-        <Grid.Column style={{ color: 'white' }} width={4}>
-          <Menu fluid widths={2} inverted>
-            <Menu.Item
-              name="video"
-              active={activeTab === 'video'}
-              onClick={() => activeTab === 'segment' && utils.history.push(`/${currentVideoId}`)}
-            >
-              Video Search
-            </Menu.Item>
-
-            <Menu.Item
-              name="segment"
-              active={activeTab === 'segment'}
-              // TODO: Find a way to better handle the hardcoded default segment
-              onClick={() =>
-                activeTab === 'video' &&
-                utils.history.push(`/search/${currentSegmentId || defaultSegmentId}`)
-              }
-            >
-              Segment Search
-            </Menu.Item>
-          </Menu>
-        </Grid.Column>
-
-        <Grid.Column style={{ color: 'white' }} width={4} floated="right">
-          <a href="https://mbt-guide-admin.netlify.app/" target="_blank" rel="noopener noreferrer">
-            <Button style={{ margin: 5 }} icon labelPosition="right" color="teal">
-              View Stats App <Icon name="chart line" />
-            </Button>
-          </a>
-        </Grid.Column>
-      </Grid.Row> */}
     </Grid>
   );
 };

@@ -15,10 +15,11 @@ import SegmentViewer from '../../components/SegmentViewer';
 import * as services from '../../services';
 import * as utils from '../../utils';
 import { captureAndLog, toastError } from '../../utils';
+import LandingPage from '../../components/LandingPage';
 
 const { Grid, SegmentList, Loading } = components;
 
-const Segments = ({ segmentId }: { segmentId: string }) => {
+const Segments = ({ segmentId }: { segmentId?: string }) => {
   const [error, setError] = React.useState();
   const [loadingSelectedSegment, setLoadingSelectedSegment] = React.useState(true);
   const [segments, setSegments] = React.useState(undefined as Array<any> | void);
@@ -36,7 +37,7 @@ const Segments = ({ segmentId }: { segmentId: string }) => {
 
   const selectSegment = async (selectSegmentId: string) => {
     dispatch(setLastViewedSegmentId({ lastViewedSegmentId: selectSegmentId }));
-    utils.history.push(`/segments/${selectSegmentId}`);
+    utils.history.push(`/${selectSegmentId}`);
   };
 
   const videoColumnResizeObserver = new ResizeObserver(entries => {
@@ -69,7 +70,7 @@ const Segments = ({ segmentId }: { segmentId: string }) => {
     }
     // Hardcode a default segment for now
     const currentSegmentId = segmentId ? segmentId : lastViewedSegmentId;
-    !segmentId && selectSegment(currentSegmentId);
+    // !segmentId && selectSegment(currentSegmentId);
     dispatch(setPreviousView({ previousView: 'segment' }));
     dispatch(setSearchType({ searchType: 'segment' }));
     dispatch(setShowSearchbar({ showSearchbar: true }));
@@ -119,7 +120,9 @@ const Segments = ({ segmentId }: { segmentId: string }) => {
       <Grid>
         <Grid.Row>
           <Grid.Column width={11}>
-            {!loadingSelectedSegment ? (
+            {!segmentId ? (
+              <LandingPage></LandingPage>
+            ) : !loadingSelectedSegment ? (
               selectedSegment ? (
                 <div ref={setVideoColumnRef as any}>
                   <SegmentViewer segment={selectedSegment} />

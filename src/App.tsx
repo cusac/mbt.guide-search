@@ -32,38 +32,15 @@ const App = () => {
               path="/"
               exact
               render={props => {
-                return <routes.Home />;
+                return <routes.Segments />;
               }}
             />
             <Route
-              path="/videos/:videoId?"
-              exact
-              render={props => {
-                const { videoId } = props.match.params;
-                return <routes.Videos {...props} {...{ videoId }} />;
-              }}
-            />
-            <Route
-              path="/my-segments"
-              exact
-              render={props => {
-                return <routes.MySegments />;
-              }}
-            />
-            <Route
-              path="/segments/:segmentId"
+              path="/:segmentId"
               exact
               render={props => {
                 const { segmentId } = props.match.params;
                 return <routes.Segments {...props} {...{ segmentId }} />;
-              }}
-            />
-            <Route
-              path="/edit/:videoId/:segmentId?"
-              render={props => {
-                const { videoId } = props.match.params;
-                const { segmentId } = props.match.params;
-                return <routes.Edit {...props} {...{ videoId, segmentId }} />;
               }}
             />
           </Router>
