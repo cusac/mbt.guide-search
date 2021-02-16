@@ -27,7 +27,9 @@ const SegmentViewer = ({ segment }: { segment: any }) => {
   const { start, end } = segment as any;
   return (
     <div>
-      <h1>{(segment as any).title}</h1>
+      <div className="vidHeader">
+        <div className="vidTitle">{(segment as any).title}</div>
+      </div>
       <components.YouTubePlayerWithControls
         {...{ videoId: (segment as any).videoYtId, start, end }}
         autoplay
@@ -39,7 +41,9 @@ const SegmentViewer = ({ segment }: { segment: any }) => {
       {canEdit && (
         <Button style={{ margin: 15, marginTop: 50 }}>
           <Icon name="edit" />
-          <Link to={`/edit/${(segment as any).videoYtId}/${segment.segmentId}`}>Edit segment</Link>
+          <Link to={{ pathname: `https://mbt-guide.netlify.app/` }} target="_blank">
+            Create Your Own Video Segments!
+          </Link>
         </Button>
       )}
       <br />

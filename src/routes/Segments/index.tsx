@@ -21,7 +21,7 @@ import * as services from '../../services';
 import * as utils from '../../utils';
 import { captureAndLog, toastError } from '../../utils';
 
-const { Grid, SegmentList, Loading } = components;
+const { Grid, SegmentList, Loading, Searchbar } = components;
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -159,48 +159,66 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
 
   return (
     <div>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column width={11}>
-            {!segmentId ? (
-              <LandingPage></LandingPage>
-            ) : !loadingSelectedSegment ? (
-              selectedSegment ? (
-                <div ref={setVideoColumnRef as any}>
-                  <SegmentViewer segment={selectedSegment} />
-                </div>
-              ) : (
-                <h2 style={{ color: 'black' }}>Segment not found. </h2>
-              )
-            ) : (
-              <Loading>Loading segment...</Loading>
-            )}
-          </Grid.Column>
-          <Grid.Column style={{ color: 'white' }} verticalAlign="middle" width={5}>
-            {!loadingSegments ? (
-              <div>
-                {segments && segments.length > 0 ? (
-                  <div style={{ overflow: 'auto', maxHeight: columnHeight }}>
-                    <SegmentList
-                      segments={segments as any}
-                      handleSegmentSelect={(segment: any) =>
-                        segment && selectSegment(segment.segmentId)
-                      }
-                    />
+      <div>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={11}>
+              <Searchbar />
+
+              {!segmentId ? (
+                <LandingPage></LandingPage>
+              ) : !loadingSelectedSegment ? (
+                selectedSegment ? (
+                  <div ref={setVideoColumnRef as any}>
+                    <SegmentViewer segment={selectedSegment} />
                   </div>
                 ) : (
-                  <h2 style={{ color: 'black' }}>
-                    No segments found. Try searching for something less specific or if searching for
-                    a title make sure the title is exact.{' '}
-                  </h2>
-                )}
-              </div>
-            ) : (
-              <Loading>Loading segments...</Loading>
-            )}
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+                  <h2 style={{ color: 'black' }}>Segment not found. </h2>
+                )
+              ) : (
+                <Loading>Loading segment...</Loading>
+              )}
+            </Grid.Column>
+
+            <Grid.Column style={{ color: 'white' }} verticalAlign="middle" width={5}>
+              {!loadingSegments ? (
+                <div>
+                  {segments && segments.length > 0 ? (
+                    <div style={{ marginTop: 0, overflow: 'auto', maxHeight: columnHeight }}>
+                      <SegmentList
+                        segments={segments as any}
+                        handleSegmentSelect={(segment: any) =>
+                          segment && selectSegment(segment.segmentId)
+                        }
+                      />
+                    </div>
+                  ) : (
+                    <h2 style={{ color: 'black' }}>
+                      No segments found!
+                      <br />
+                      <hr />
+                      <br />
+                      <small>
+                        Try searching for something less specific
+                        <br />
+                        or click on the tags.
+                      </small>
+                    </h2>
+                  )}
+                </div>
+              ) : (
+                <Loading>Loading segments...</Loading>
+              )}
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </div>
+
+      <div className="footer">
+        2014 © My Big Toe LLC.
+        <a href="https://www.my-big-toe.com/privacy-notice/">Privacy Notice</a> |
+        <a href="https://www.my-big-toe.com/shipping-returns/">Shipping & Returns</a> <br />
+      </div>
     </div>
   );
 };
