@@ -38,14 +38,14 @@ const SegmentViewer = ({ segment }: { segment: any }) => {
         start={(segment as any).start}
         offsetTooltip={true}
       />
-      {canEdit && (
-        <Button style={{ margin: 15, marginTop: 50 }}>
-          <Icon name="edit" />
-          <Link to={{ pathname: `https://mbt-guide.netlify.app/` }} target="_blank">
-            Create Your Own Video Segments!
-          </Link>
-        </Button>
-      )}
+
+      <Button style={{ margin: 15, marginTop: 50 }}>
+        <Icon name="edit" />
+        <Link to={{ pathname: `https://mbt.guide` }} target="_blank">
+          Create Your Own Video Segments!
+        </Link>
+      </Button>
+
       <br />
       <Container>
         <Grid relaxed celled="internally">
