@@ -11,6 +11,7 @@ export type Params = {
   $limit?: number;
   $sort?: string | string[];
   $text?: string;
+  $term?: string;
 };
 
 export type ListResponse<T> = {
