@@ -59,7 +59,7 @@ const Searchbar = (): any => {
   const getSuggestions = async (value: string): Promise<string[]> => {
     let {
       data: { docs },
-    } = await repository.tag.list({ $term: value, $limit: 50, $embed: 'segments' });
+    } = await repository.tag.list({ $term: value, $limit: 25, $embed: 'segments' });
 
     // NOTE: Soon the tag filters and formatting will be accomplished on the backend
     docs = docs.filter(tag => tag.segments && tag.segments.length > 0);
