@@ -41,9 +41,9 @@ const YouTubePlayer = ({
   const [player, setPlayer] = React.useState(undefined);
   const [state, setState] = React.useState('unstarted');
 
-  const ref = React.createRef();
+  const ref = React.useRef();
   React.useEffect(() => {
-    ytReady(() => {
+    const createPlayer = () => {
       const YT = (window as any)['YT'];
 
       const ytPlayer = new YT.Player(ref.current, {
@@ -81,6 +81,15 @@ const YouTubePlayer = ({
           },
         },
       });
+    };
+    ytReady(() => {
+      const checkIfReady = setInterval(function() {
+        console.log('REF:', ref);
+        if (ref.current) {
+          createPlayer();
+          clearInterval(checkIfReady);
+        }
+      }, 100); // check every 100ms
     });
     return () => ytReady(() => player && (player as any).destroy());
     // eslint-disable-next-line react-hooks/exhaustive-deps
