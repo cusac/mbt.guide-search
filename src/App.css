@@ -197,10 +197,10 @@
 
 .vidTitle {
   text-align: left;
-  background-color: #eee;
+  background-color: #efefef;
   padding: 20px;
   border-width: 1px;
-  border-color: lightgrey;
+  border-color: #eee;
   border-style: solid;
   border-radius: 3px;
   white-space: pre-line;
@@ -217,6 +217,10 @@
   margin: 0 auto;
   padding: 5px;
   position: relative;
+}
+
+body {
+  font-family: "Lato, Sans-serif";
 }
 
 /* react-autosuggestions */
