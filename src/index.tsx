@@ -7,6 +7,7 @@ import 'semantic-ui-css/semantic.min.css';
 import App from './App';
 import { store, persistor, initApp } from 'store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { MediaContextProvider } from 'components';
 
 if (process.env.NODE_ENV === 'production') {
   Sentry.init({ dsn: process.env.REACT_APP_SENTRY_DSN });
@@ -19,7 +20,9 @@ const renderApp = () =>
   ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <MediaContextProvider>
+          <App />
+        </MediaContextProvider>
       </PersistGate>
     </Provider>,
     nullthrows(document.getElementById('root'))

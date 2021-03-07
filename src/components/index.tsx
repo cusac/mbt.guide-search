@@ -33,3 +33,4 @@ export { default as Loading } from './Loading';
 export { default as YouTubePlayerWithControls } from './YouTubePlayerWithControls';
 export { default as LandingPage } from './LandingPage';
 export { default as SmallHeader } from './SmallHeader';
+export { MediaContextProvider, Media } from './Media';

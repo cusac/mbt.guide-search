@@ -5,6 +5,7 @@ import { AppHeader, Menu, Icon, Sticky, SmallHeader } from '../components';
 import logo from '../images/logo-wide.png';
 import { RootState } from 'store';
 import { history } from 'utils';
+import { Media } from './Media';
 
 const Layout = ({ children }: { children: any }) => {
   const [contextRef, setContextRef] = React.useState(undefined);
@@ -15,7 +16,12 @@ const Layout = ({ children }: { children: any }) => {
 
   return (
     <div>
-      <SmallHeader />
+      <Media at="mobile">
+        <SmallHeader />
+      </Media>
+      <Media greaterThan="mobile">
+        <AppHeader />
+      </Media>
       <div className="layout-content">{children}</div>
     </div>
   );
