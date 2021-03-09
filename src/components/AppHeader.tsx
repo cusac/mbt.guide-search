@@ -13,19 +13,13 @@ const { Button, Grid, Searchbar, Icon, Auth, Header, Menu, Link } = components;
 const AppHeader = (): any => {
   const [loading, setLoading] = React.useState(false);
 
-  const options = [
-    { key: 1, text: 'This is a super long item', value: 1 },
-    { key: 2, text: 'Dropdown direction can help', value: 2 },
-    { key: 3, text: 'Items are kept within view', value: 3 },
-  ];
-
   return (
     <Grid className="AppHeader">
       <Media greaterThan="computer">
         {(mediaClassNames, renderChildren) => {
           return renderChildren ? (
-            <Grid.Row style={{ paddingTop: 30 }} centered>
-              <Grid.Column style={{ color: 'white', padding: 0 }} verticalAlign="middle" width={15}>
+            <Grid.Row style={{ paddingTop: 30, paddingBottom: '0px' }} centered>
+              <Grid.Column style={{ color: 'white', padding: 0 }} verticalAlign="middle" width={14}>
                 <Image
                   src={logo}
                   className="logo"
@@ -41,7 +35,7 @@ const AppHeader = (): any => {
       <Media lessThan="largescreen">
         {(mediaClassNames, renderChildren) => {
           return renderChildren ? (
-            <Grid.Row style={{ paddingTop: 30 }} centered>
+            <Grid.Row style={{ paddingTop: 30, paddingBottom: '0px' }} centered>
               <Grid.Column style={{ color: 'white', padding: 0 }} verticalAlign="middle" width={13}>
                 <Image
                   src="https://www.my-big-toe.com/wp-content/themes/mybigtoe/images/icon-logo.png"
@@ -59,12 +53,12 @@ const AppHeader = (): any => {
         <Media greaterThan="computer">
           {(mediaClassNames, renderChildren) => {
             return renderChildren ? (
-              <Grid.Column verticalAlign="middle" width={3}></Grid.Column>
+              <Grid.Column verticalAlign="middle" width={4}></Grid.Column>
             ) : null;
           }}
         </Media>
 
-        <Grid.Column verticalAlign="middle" width={13} only="computer">
+        <Grid.Column verticalAlign="middle" width={12} only="computer">
           <Menu>
             <Menu.Item>
               <div className="headerLinks">
@@ -93,6 +87,11 @@ const AppHeader = (): any => {
             <Menu.Item>
               <div className="headerLinks">
                 <a href="https://www.my-big-toe.com/about">EVENTS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">LINKS</a>
               </div>
             </Menu.Item>
             <Menu.Item>

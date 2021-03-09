@@ -401,42 +401,91 @@ header .navbar {
 .AppHeader .menu .item {
   padding: 0px;
 }
+.AppHeader .ui.menu {
+  border: 0;
+  box-shadow: none;
+  margin-bottom: 1px;
+}
+.AppHeader .ui.menu .item::before {
+  display: none;
+}
+/* .AppHeader .headerLinks {
+    font-size: 14px;
+    font-weight: 700;
+    color: #8c929c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 35px 15px;
+    font-family: "Lato", sans-serif;
+} */
+.AppHeader .headerLinks a,
+.AppHeader .headerLinks .divider {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #8c929c !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 35px 15px !important;
+  font-family: 'Lato', sans-serif !important;
+  line-height: 20px;
+}
+.AppHeader .ui.menu > .headerLinks.dropdown.ui.item > .menu.transition > div.item {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #8c929c !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  display: block;
+  min-width: 130px;
+  font-family: 'Lato', sans-serif !important;
+  display: block;
+  padding: 6px 20px;
+  padding-top: 6px;
+  padding-right: 20px;
+  padding-bottom: 6px;
+  padding-left: 20px;
+  clear: both;
+  white-space: nowrap;
+}
 
-.headerLinks,
+@font-face {
+  font-family: 'Lato';
+  src: local('Lato'), url(./fonts/Lato/Lato-Bold.ttf) format('ttf');
+}
+
+/* .headerLinks,
 .headerLinks .divider.text {
-  /* float: left; */
   margin: 0px;
   padding: 25px;
   background-color: #fff;
   white-space: nowrap;
-}
+} */
 
-.headerLinks a,
+/* .headerLinks a,
 .headerLinks a:link,
 .headerLinks a:visited {
   color: #444 !important;
-}
+} */
 
-.headerLinksActive {
-  /* float: left; */
+/* .headerLinksActive {
   margin: 0px;
   padding: 25px;
   background-color: #ded6c8;
   white-space: nowrap;
-}
+} */
 
-.headerLinksActive a,
+/* .headerLinksActive a,
 .headerLinksActive a:link,
 .headerLinksActive a:visited {
-  color: #444 !important;
-}
+  color: #444 !important; 
+} */
 
-.headerLinks:hover,
+/* .headerLinks:hover,
 .headerLinksActive:hover,
 .headerLinks .divider.text:hover {
   background-color: #efefef;
   font-weight: bold;
-}
+} */
 
 /* @media screen and (max-width: 1000px) {
   .headerLinks,
