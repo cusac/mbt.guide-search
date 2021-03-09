@@ -398,8 +398,13 @@ header .navbar {
   border-width: 0px;
 }
 
-.headerLinks {
-  float: left;
+.AppHeader .menu .item {
+  padding: 0px;
+}
+
+.headerLinks,
+.headerLinks .divider.text {
+  /* float: left; */
   margin: 0px;
   padding: 25px;
   background-color: #fff;
@@ -413,7 +418,7 @@ header .navbar {
 }
 
 .headerLinksActive {
-  float: left;
+  /* float: left; */
   margin: 0px;
   padding: 25px;
   background-color: #ded6c8;
@@ -427,12 +432,13 @@ header .navbar {
 }
 
 .headerLinks:hover,
-.headerLinksActive:hover {
+.headerLinksActive:hover,
+.headerLinks .divider.text:hover {
   background-color: #efefef;
   font-weight: bold;
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   .headerLinks,
   .headerLinksActive {
     width: 50px;
@@ -447,7 +453,7 @@ header .navbar {
     padding: 25px;
     font-size: 70%;
   }
-}
+} */
 
 .headerBreak {
   margin-top: -15px;

@@ -5,58 +5,378 @@ import * as components from '../components';
 import * as utils from '../utils';
 import { toastError } from '../utils';
 import logo from '../images/logo-dark.png';
-import { Image } from 'semantic-ui-react';
+import { Dropdown, Image, Container } from 'semantic-ui-react';
+import { Media } from './Media';
 
 const { Button, Grid, Searchbar, Icon, Auth, Header, Menu, Link } = components;
 
 const AppHeader = (): any => {
   const [loading, setLoading] = React.useState(false);
 
+  const options = [
+    { key: 1, text: 'This is a super long item', value: 1 },
+    { key: 2, text: 'Dropdown direction can help', value: 2 },
+    { key: 3, text: 'Items are kept within view', value: 3 },
+  ];
+
   return (
     <Grid className="AppHeader">
-      <Grid.Row style={{ paddingTop: 30 }}>
-        <Grid.Column style={{ color: 'white ' }} verticalAlign="middle" width={2}></Grid.Column>
-        <Grid.Column style={{ color: 'white ' }} verticalAlign="middle" width={3}>
-          <Image
-            src={logo}
-            className="logo"
-            alt="MBT video search"
-            onClick={() => (window.location.href = 'http://my-big-toe.com')}
-          ></Image>
+      <Media greaterThan="computer">
+        {(mediaClassNames, renderChildren) => {
+          return renderChildren ? (
+            <Grid.Row style={{ paddingTop: 30 }} centered>
+              <Grid.Column style={{ color: 'white', padding: 0 }} verticalAlign="middle" width={15}>
+                <Image
+                  src={logo}
+                  className="logo"
+                  alt="MBT video search"
+                  onClick={() => (window.location.href = 'http://my-big-toe.com')}
+                ></Image>
+              </Grid.Column>
+            </Grid.Row>
+          ) : null;
+        }}
+      </Media>
+
+      <Media lessThan="largescreen">
+        {(mediaClassNames, renderChildren) => {
+          return renderChildren ? (
+            <Grid.Row style={{ paddingTop: 30 }} centered>
+              <Grid.Column style={{ color: 'white', padding: 0 }} verticalAlign="middle" width={13}>
+                <Image
+                  src="https://www.my-big-toe.com/wp-content/themes/mybigtoe/images/icon-logo.png"
+                  className="logo"
+                  alt="MBT video search"
+                  onClick={() => (window.location.href = 'http://my-big-toe.com')}
+                ></Image>
+              </Grid.Column>
+            </Grid.Row>
+          ) : null;
+        }}
+      </Media>
+
+      <Grid.Row centered>
+        <Media greaterThan="computer">
+          {(mediaClassNames, renderChildren) => {
+            return renderChildren ? (
+              <Grid.Column verticalAlign="middle" width={3}></Grid.Column>
+            ) : null;
+          }}
+        </Media>
+
+        <Grid.Column verticalAlign="middle" width={13} only="computer">
+          <Menu>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/">HOME</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">ABOUT</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Dropdown item simple text="STORE" icon={null} className="headerLinks">
+              <Dropdown.Menu>
+                <Dropdown.Item>PAPER BACK BOOKS</Dropdown.Item>
+                <Dropdown.Item>HARD BACK BOOKS</Dropdown.Item>
+                <Dropdown.Item>BINURAL BEATS</Dropdown.Item>
+                <Dropdown.Item>{'PAYMENTS & DONATIONS'}</Dropdown.Item>
+                <Dropdown.Item>{'MBT T-SHIRTS & MORE'}</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">EVENTS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">DOWNLOADS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">SUPPORT MBT</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">CONTACT</a>
+              </div>
+            </Menu.Item>
+          </Menu>
+          {/* <Menu>
+            <Menu.Item name="home">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/">HOME</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="about">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">ABOUT</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Dropdown options={options}>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">STORE</a>
+              </div>
+            </Dropdown>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">SUPPORT MBT</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+          </Menu> */}
+          {/* <Grid stackable columns={2} centered>
+            <Grid.Column width={12} floated="right">
+              <Grid columns={7}>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/">HOME</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/about">ABOUT</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/store1">STORE</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.mbtevents.com/">EVENTS</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/mbt-links">LINKS</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinksActive">VIDEO SEARCH</div>
+                </Grid.Column>
+              </Grid>
+            </Grid.Column>
+
+            <Grid.Column width={4} floated="left">
+              <Grid columns={2}>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/support">SUPPORT MBT</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/contact">CONTACT</a>
+                  </div>
+                </Grid.Column>
+              </Grid>
+            </Grid.Column>
+          </Grid> */}
+        </Grid.Column>
+
+        <Grid.Column verticalAlign="middle" width={13} only="tablet">
+          <Menu>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/">HOME</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">ABOUT</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Dropdown item simple text="STORE" icon={null} className="headerLinks">
+              <Dropdown.Menu>
+                <Dropdown.Item>PAPER BACK BOOKS</Dropdown.Item>
+                <Dropdown.Item>HARD BACK BOOKS</Dropdown.Item>
+                <Dropdown.Item>BINURAL BEATS</Dropdown.Item>
+                <Dropdown.Item>{'PAYMENTS & DONATIONS'}</Dropdown.Item>
+                <Dropdown.Item>{'MBT T-SHIRTS & MORE'}</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">EVENTS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">DOWNLOADS</a>
+              </div>
+            </Menu.Item>
+          </Menu>
+
+          <Menu>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">SUPPORT MBT</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">CONTACT</a>
+              </div>
+            </Menu.Item>
+          </Menu>
+          {/* <Menu>
+            <Menu.Item name="home">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/">HOME</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="about">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/about">ABOUT</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Dropdown options={options}>
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">STORE</a>
+              </div>
+            </Dropdown>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">SUPPORT MBT</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+            <Menu.Item name="videos">
+              <div className="headerLinks">
+                <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+              </div>
+            </Menu.Item>
+          </Menu> */}
+          {/* <Grid stackable columns={2} centered>
+            <Grid.Column width={12} floated="right">
+              <Grid columns={7}>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/">HOME</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/about">ABOUT</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/media">VIDEOS</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/store1">STORE</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.mbtevents.com/">EVENTS</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/mbt-links">LINKS</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinksActive">VIDEO SEARCH</div>
+                </Grid.Column>
+              </Grid>
+            </Grid.Column>
+
+            <Grid.Column width={4} floated="left">
+              <Grid columns={2}>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/support">SUPPORT MBT</a>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div className="headerLinks">
+                    <a href="https://www.my-big-toe.com/contact">CONTACT</a>
+                  </div>
+                </Grid.Column>
+              </Grid>
+            </Grid.Column>
+          </Grid> */}
         </Grid.Column>
       </Grid.Row>
-
-      <Grid.Column verticalAlign="middle" width={4}></Grid.Column>
-
-      <Grid.Column verticalAlign="middle" width={10}>
-        <Grid.Row style={{ paddingBottom: 0 }}>
-          <div className="headerLinks">
-            <a href="https://www.my-big-toe.com/">HOME</a>
-          </div>
-          <div className="headerLinks">
-            <a href="https://www.my-big-toe.com/about">ABOUT</a>
-          </div>
-          <div className="headerLinks">
-            <a href="https://www.my-big-toe.com/media">VIDEOS</a>
-          </div>
-          <div className="headerLinks">
-            <a href="https://www.my-big-toe.com/store1">STORE</a>
-          </div>
-          <div className="headerLinks">
-            <a href="https://www.mbtevents.com/">EVENTS</a>
-          </div>
-          <div className="headerLinks">
-            <a href="https://www.my-big-toe.com/mbt-links">LINKS</a>
-          </div>
-          <div className="headerLinksActive">VIDEO SEARCH</div>
-          <div className="headerLinks">
-            <a href="https://www.my-big-toe.com/support">SUPPORT MBT</a>
-          </div>
-          <div className="headerLinks">
-            <a href="https://www.my-big-toe.com/contact">CONTACT</a>
-          </div>
-        </Grid.Row>
-      </Grid.Column>
 
       <div className="headerBreak" />
     </Grid>

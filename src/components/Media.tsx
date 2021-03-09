@@ -5,5 +5,6 @@ export const { MediaContextProvider, Media } = createMedia({
     mobile: 0,
     tablet: 768,
     computer: 1024,
+    largescreen: 1200,
   },
 });
