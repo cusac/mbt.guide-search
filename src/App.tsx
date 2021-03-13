@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 // Import css
 import 'react-toastify/dist/ReactToastify.css';
-import './App.css';
+import './App.scss';
 import Layout from 'components/Layout';
 
 toast.configure();
