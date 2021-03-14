@@ -16,12 +16,13 @@ const Layout = ({ children }: { children: any }) => {
 
   return (
     <div>
-      <Media at="mobile">
+      <AppHeader />
+      {/* <Media at="mobile">
         <SmallHeader />
       </Media>
       <Media greaterThan="mobile">
         <AppHeader />
-      </Media>
+      </Media> */}
       <div className="layout-content">{children}</div>
     </div>
   );

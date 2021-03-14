@@ -13,9 +13,17 @@ const { Button, Grid, Searchbar, Icon, Auth, Header, Menu, Link } = components;
 
 const AppHeader = (): any => {
   const [loading, setLoading] = React.useState(false);
+  const [visible, setVisible] = React.useState(true);
+
+  const toggleVisibility = () => {
+    console.log('VISIBLE:', visible);
+    setVisible(!visible);
+  };
 
   const isDesktopOrLaptop = useMediaQuery({ minWidth: mediaBreakpoints.largescreen });
   const isTabletOrMobile = useMediaQuery({ maxWidth: mediaBreakpoints.largescreen });
+  const isSmallComputer = useMediaQuery({ maxWidth: mediaBreakpoints.smallComputer });
+  const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
 
   return (
     <div className="LargeHeader">
@@ -28,6 +36,7 @@ const AppHeader = (): any => {
                 className="navbar-toggle"
                 data-toggle="collapse"
                 data-target=".navbar-ex1-collapse"
+                onClick={toggleVisibility}
               >
                 <span className="sr-only">Toggle navigation</span>
                 <span className="icon-bar"></span>
@@ -35,20 +44,39 @@ const AppHeader = (): any => {
                 <span className="icon-bar"></span>
               </button>
               <a className="navbar-brand" href="https://www.my-big-toe.com/" rel="home">
-                <img
-                  src="https://www.my-big-toe.com/wp-content/themes/mybigtoe/images/logo-dark.png"
-                  alt=""
-                  className="visible-lg-block"
-                />
-                <img
-                  src="https://www.my-big-toe.com/wp-content/themes/mybigtoe/images/icon-logo.png"
-                  alt=""
-                  className="hidden-lg"
-                />
+                <Media greaterThan="computer">
+                  {(mediaClassNames, renderChildren) => {
+                    return renderChildren ? (
+                      <img
+                        src="https://www.my-big-toe.com/wp-content/themes/mybigtoe/images/logo-dark.png"
+                        alt=""
+                        className="visible-lg-block"
+                      />
+                    ) : null;
+                  }}
+                </Media>
+                <Media lessThan="largescreen">
+                  {(mediaClassNames, renderChildren) => {
+                    return renderChildren ? (
+                      <img
+                        src="https://www.my-big-toe.com/wp-content/themes/mybigtoe/images/icon-logo.png"
+                        alt=""
+                        className="hidden-lg"
+                      />
+                    ) : null;
+                  }}
+                </Media>
               </a>
             </div>
 
-            <nav className="collapse navbar-collapse navbar-ex1-collapse">
+            <nav
+              className={`navbar-collapse navbar-ex1-collapse collapse collapsed ${
+                visible ? 'is-expanded' : ''
+              } ${isSmallComputer && !isTablet ? 'medium-menu' : ''} ${
+                isTablet ? 'small-menu' : ''
+              }`}
+              style={{ height: visible ? undefined : '1px' }}
+            >
               <ul id="menu-main-menu" className="nav navbar-nav navbar-right">
                 <li
                   id="menu-item-6"
