@@ -67,6 +67,38 @@ body {
 }
 
 .LargeHeader {
+  font-size: 16px;
+  line-height: 26px;
+  color: #333333;
+  font-family: 'Lato', sans-serif;
+  text-rendering: optimizelegibility;
+  overflow-x: hidden;
+  padding-top: 90px;
+
+  /* navbar brand */
+  .navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+  @media (min-width: 768px) {
+    .navbar > .container .navbar-brand,
+    .navbar > .container-fluid .navbar-brand {
+      margin-left: -15px;
+    }
+  }
+  .header .navbar-brand {
+    height: auto;
+    padding: 15px 0;
+  }
+  .navbar-default .navbar-brand {
+    color: #777;
+  }
+  .navbar-brand > img {
+    display: block;
+  }
   /* menu transition */
   .navbar-collapse.collapsed {
     width: 100%;
@@ -362,10 +394,18 @@ body {
   .navbar-default {
     background-color: #f8f8f8;
     border-color: #e7e7e7;
+    border-top-color: rgb(231, 231, 231);
+    border-right-color: rgb(231, 231, 231);
+    border-bottom-color: rgb(231, 231, 231);
+    border-left-color: rgb(231, 231, 231);
   }
   .navbar-fixed-top {
     top: 0;
     border-width: 0 0 1px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    border-left-width: 0px;
   }
   @media (min-width: 768px) {
     .navbar-fixed-top,
@@ -386,7 +426,7 @@ body {
     }
   }
   .navbar {
-    position: relative;
+    // position: relative;
     min-height: 50px;
     margin-bottom: 20px;
     border: 1px solid transparent;
@@ -620,18 +660,17 @@ body {
     }
   }
 
-  .container > .navbar-header,
-  .container-fluid > .navbar-header,
-  .container > .navbar-collapse,
-  .container-fluid > .navbar-collapse {
-    margin-right: -15px;
-    margin-left: -15px;
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    max-height: 340px;
   }
-
-  // .navbar-fixed-top .navbar-collapse,
-  // .navbar-fixed-bottom .navbar-collapse {
-  //   max-height: 340px;
-  // }
+  .navbar-default .navbar-collapse {
+    margin: 0 0 0;
+  }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border-color: #e7e7e7;
+  }
   @media (min-width: 768px) {
     .navbar-fixed-top .navbar-collapse,
     .navbar-static-top .navbar-collapse,
@@ -746,15 +785,15 @@ body {
       margin-right: -15px;
     }
   }
+
+  .navbar-nav {
+    margin: 7.5px -15px;
+  }
   @media (min-width: 768px) {
     .navbar-nav {
       float: left;
       margin: 0;
     }
-  }
-
-  .navbar-nav {
-    margin: 7.5px -15px;
   }
 
   .nav {
@@ -790,15 +829,6 @@ body {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
-  }
-  @media (min-width: 768px) {
-    .navbar-collapse.collapse {
-      display: block !important;
-      height: auto !important;
-      padding-bottom: 0;
-      overflow: visible !important;
-      visibility: visible !important;
-    }
   }
 
   .collapse {
@@ -872,12 +902,6 @@ body {
     text-align: -webkit-match-parent;
   }
 
-  .nav {
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-  }
-
   ul,
   ol {
     font-size: 16px;
@@ -887,15 +911,6 @@ body {
   }
   ul {
     list-style-type: disc;
-  }
-  @media (min-width: 768px) {
-    .navbar-collapse.collapse {
-      display: block !important;
-      height: auto !important;
-      padding-bottom: 0;
-      overflow: visible !important;
-      visibility: visible !important;
-    }
   }
 
   .collapse {
@@ -1056,12 +1071,6 @@ body {
     text-align: -webkit-match-parent;
   }
 
-  .nav {
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-  }
-
   ul,
   ol {
     font-size: 16px;
@@ -1071,15 +1080,6 @@ body {
   }
   ul {
     list-style-type: disc;
-  }
-  @media (min-width: 768px) {
-    .navbar-collapse.collapse {
-      display: block !important;
-      height: auto !important;
-      padding-bottom: 0;
-      overflow: visible !important;
-      visibility: visible !important;
-    }
   }
 
   .collapse {
@@ -1276,22 +1276,8 @@ body {
     text-align: -webkit-match-parent;
   }
 
-  .nav {
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-  }
   ul {
     list-style-type: disc;
-  }
-  @media (min-width: 768px) {
-    .navbar-collapse.collapse {
-      display: block !important;
-      height: auto !important;
-      padding-bottom: 0;
-      overflow: visible !important;
-      visibility: visible !important;
-    }
   }
 
   .collapse {
