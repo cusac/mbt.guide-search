@@ -26,7 +26,7 @@ const AppHeader = (): any => {
   const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
 
   return (
-    <div className="LargeHeader">
+    <div className="AppHeader">
       <header className="header" role="banner">
         <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
           <div className="container">

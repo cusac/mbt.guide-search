@@ -29,26 +29,6 @@
   background-color: whitesmoke;
 }
 
-.AppHeader {
-  background-color: #fff;
-  height: 210px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0px;
-  z-index: 100;
-}
-
-.SmallHeader {
-  background-color: #fff;
-  height: 210px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0px;
-  z-index: 100;
-}
-
 body {
   font-size: 16px;
   line-height: 26px;
@@ -66,7 +46,7 @@ body {
   background-color: #fff;
 }
 
-.LargeHeader {
+.AppHeader {
   font-size: 16px;
   line-height: 26px;
   color: #333333;
