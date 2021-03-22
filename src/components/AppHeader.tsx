@@ -179,6 +179,14 @@ const AppHeader = (): any => {
                   </ul>
                 </li>
                 <li
+                  id="menu-item-1010"
+                  className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1000 current_page_item menu-item-1010"
+                >
+                  <a href="https://www.my-big-toe.com/support/" aria-current="page">
+                    Video Search
+                  </a>
+                </li>
+                <li
                   id="menu-item-1022"
                   className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1016 current_page_item menu-item-1022"
                 >
