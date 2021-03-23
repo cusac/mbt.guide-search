@@ -1,5 +1,6 @@
-import { YouTubePlayer, Slider, Button, Popup } from '../components';
-import React from 'react';
+import { default as React } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
+import { Button, Popup, Slider, YouTubePlayer } from '../components';
 // import type { PlayBackRate } from './YouTubePlayer';
 
 // const playBackRates: [PlayBackRate,PlayBackRate,PlayBackRate,PlayBackRate,PlayBackRate] = [0.25, 0.5, 1, 1.5, 2];
@@ -29,6 +30,8 @@ const YouTubePlayerWithControls = ({
   // const [playBackRate, setPlayBackRate]: [PlayBackRate, any] = React.useState(playBackRates[2]);
   const [playBackRate, setPlayBackRate]: [any, any] = React.useState(playBackRates[2]);
   const [playBackRateIndex, setPlayBackRateIndex] = React.useState(2);
+  const [videoRef, setVideoRef] = React.useState(undefined as HTMLDivElement | undefined);
+  const [videoHeight, setVideoHeight] = React.useState(640);
 
   const speedUp = () => {
     if (playBackRateIndex >= playBackRates.length - 1) {
@@ -46,13 +49,23 @@ const YouTubePlayerWithControls = ({
     setPlayBackRateIndex(playBackRateIndex - 1);
   };
 
+  const videoResizeObserver = new ResizeObserver(entries => {
+    setVideoHeight(entries[0].target.clientHeight);
+  });
+
+  React.useEffect(() => {
+    if (videoRef && videoRef.clientHeight) {
+      videoResizeObserver.observe(videoRef);
+    }
+  }, [videoRef]);
+
   // allow playback rate control
   React.useEffect(() => {
     setPlayBackRate(playBackRates[playBackRateIndex]);
   }, [playBackRateIndex]);
 
   return (
-    <div>
+    <div ref={setVideoRef as any} className="videoWrapper">
       <div key={`${start}-${end}`}>
         <YouTubePlayer
           {...{ videoId, seconds, autoplay, start, end, playing, playBackRate }}
@@ -76,7 +89,7 @@ const YouTubePlayerWithControls = ({
         />
       </div>
       {controls && (
-        <div>
+        <div className="videoControls" style={{ paddingTop: videoHeight + 20 }}>
           <Button.Group>
             <Popup
               trigger={<Button icon="fast backward" onClick={() => setSeconds(start)} />}
@@ -138,7 +151,7 @@ const YouTubePlayerWithControls = ({
           <Slider
             start={[seconds]}
             range={{ min: Math.round(start), max: Math.round(end) }}
-            width={640}
+            // width={640}
             onHandleUpdate={(i: any, value: any) => setSeconds(value)}
             pips={true}
             offsetTooltip={offsetTooltip}
