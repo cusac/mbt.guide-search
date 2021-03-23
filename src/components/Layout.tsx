@@ -1,22 +1,22 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Grid } from 'semantic-ui-react';
-import { AppHeader, Menu, Icon, Sticky, SmallHeader } from '../components';
-import logo from '../images/logo-wide.png';
+import { useMediaQuery } from 'react-responsive';
 import { RootState } from 'store';
-import { history } from 'utils';
-import { Media } from './Media';
+import { mediaBreakpoints } from '../components/Media';
+import { AppHeader } from '../components';
 import AppFooter from './AppFooter';
 
 const Layout = ({ children }: { children: any }) => {
   const [contextRef, setContextRef] = React.useState(undefined);
+
+  const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
 
   const appHeaderHeight = useSelector((state: RootState) => state.main.appHeaderHeight);
 
   return (
     <div>
       <AppHeader />
-      <div className="layout-content" style={{ paddingTop: appHeaderHeight }}>
+      <div className="layout-content" style={{ paddingTop: isTablet ? '0px' : appHeaderHeight }}>
         {children}
       </div>
       <AppFooter />

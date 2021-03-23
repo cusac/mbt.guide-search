@@ -1,8 +1,10 @@
 import { isEmpty } from 'lodash';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import { useLocation } from 'react-router-dom';
 import ResizeObserver from 'resize-observer-polyfill';
+import { Divider } from 'semantic-ui-react';
 import {
   RootState,
   searchSegments,
@@ -16,6 +18,7 @@ import {
 } from 'store';
 import * as components from '../../components';
 import LandingPage from '../../components/LandingPage';
+import { mediaBreakpoints } from '../../components/Media';
 import SegmentViewer from '../../components/SegmentViewer';
 import * as services from '../../services';
 import * as utils from '../../utils';
@@ -46,6 +49,11 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   const dispatch = useAppDispatch();
 
   const query = useQuery();
+
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: mediaBreakpoints.largescreen });
+  const isTabletOrMobile = useMediaQuery({ maxWidth: mediaBreakpoints.largescreen });
+  const isSmallComputer = useMediaQuery({ maxWidth: mediaBreakpoints.smallComputer });
+  const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
 
   const selectSegment = async (selectSegmentId: string) => {
     dispatch(setLastViewedSegmentId({ lastViewedSegmentId: selectSegmentId }));
@@ -162,7 +170,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
       <div>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={11}>
+            <Grid.Column width={isSmallComputer ? 16 : 11}>
               <Searchbar />
 
               {!segmentId ? (
@@ -180,7 +188,18 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
               )}
             </Grid.Column>
 
-            <Grid.Column style={{ color: 'white' }} verticalAlign="middle" width={5}>
+            <Grid.Column
+              style={{ color: 'white' }}
+              verticalAlign="middle"
+              width={isSmallComputer ? 16 : 5}
+            >
+              {isSmallComputer ? (
+                <Divider horizontal style={{ marginBottom: '40px' }}>
+                  Search Results
+                </Divider>
+              ) : (
+                undefined
+              )}
               {!loadingSegments ? (
                 <div>
                   {segments && segments.length > 0 ? (

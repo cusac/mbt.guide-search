@@ -1364,11 +1364,18 @@ body {
 }
 
 .search-bar.ui.segment {
-  margin-left: 230px;
-  margin-right: 230px;
+  margin-left: 200px;
+  margin-right: 200px;
   padding: 10px;
   box-shadow: none;
   border-width: 0px;
+}
+
+@media (max-width: 1024px) {
+  .search-bar.ui.segment {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
 }
 
 .headerBreak {
