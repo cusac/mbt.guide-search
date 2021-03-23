@@ -11,14 +11,14 @@ import AppFooter from './AppFooter';
 const Layout = ({ children }: { children: any }) => {
   const [contextRef, setContextRef] = React.useState(undefined);
 
-  const lastViewedSegmentId = useSelector((state: RootState) => state.video.lastViewedSegmentId);
-  const lastViewedVideoId = useSelector((state: RootState) => state.video.lastViewedVideoId);
-  const currentUser = useSelector((state: RootState) => state.auth.user);
+  const appHeaderHeight = useSelector((state: RootState) => state.main.appHeaderHeight);
 
   return (
     <div>
       <AppHeader />
-      <div className="layout-content">{children}</div>
+      <div className="layout-content" style={{ paddingTop: appHeaderHeight }}>
+        {children}
+      </div>
       <AppFooter />
     </div>
   );

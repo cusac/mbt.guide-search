@@ -1,10 +1,13 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
+import ResizeObserver from 'resize-observer-polyfill';
+import { setAppHeaderHeight, useAppDispatch } from 'store';
 import { Media, mediaBreakpoints } from './Media';
 
 const AppHeader = (): any => {
   const [loading, setLoading] = React.useState(false);
   const [visible, setVisible] = React.useState(true);
+  const [appHeaderRef, setAppHeaderRef] = React.useState(undefined as HTMLDivElement | undefined);
 
   const toggleVisibility = () => {
     setVisible(!visible);
@@ -15,10 +18,26 @@ const AppHeader = (): any => {
   const isSmallComputer = useMediaQuery({ maxWidth: mediaBreakpoints.smallComputer });
   const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
 
+  const dispatch = useAppDispatch();
+
+  const appHeaderResizeObserver = new ResizeObserver(entries => {
+    dispatch(setAppHeaderHeight({ appHeaderHeight: entries[0].target.clientHeight }));
+  });
+
+  React.useEffect(() => {
+    if (appHeaderRef && appHeaderRef.clientHeight) {
+      appHeaderResizeObserver.observe(appHeaderRef);
+    }
+  }, [appHeaderRef]);
+
   return (
     <div className="AppHeader">
       <header className="header" role="banner">
-        <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav
+          className="navbar navbar-default navbar-fixed-top"
+          role="navigation"
+          ref={setAppHeaderRef as any}
+        >
           <div className="container">
             <div className="navbar-header">
               <button
