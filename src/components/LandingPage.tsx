@@ -18,10 +18,10 @@ const LandingPage = (): any => {
         <p>
           <br />
           Here you can browse video clips from MBT youtube videos that have been organized into
-          smaller segments based on a topic.
+          smaller segments based on searchable topics.
           <br />
           <br />
-          Enter your topic of interest into the search bar above and press enter.
+          Just enter your topic of interest into the search bar above and press <i>Enter</i>.
           <br />
           You can click on any video clip listed to the right to view it. And you can create your
           own segments too.
