@@ -1,5 +1,6 @@
 import { default as React } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
+import { Visibility } from 'semantic-ui-react';
 import { Button, Popup, Slider, YouTubePlayer } from '../components';
 // import type { PlayBackRate } from './YouTubePlayer';
 
@@ -32,6 +33,7 @@ const YouTubePlayerWithControls = ({
   const [playBackRateIndex, setPlayBackRateIndex] = React.useState(2);
   const [videoRef, setVideoRef] = React.useState(undefined as HTMLDivElement | undefined);
   const [videoHeight, setVideoHeight] = React.useState(640);
+  const [videoWidth, setVideoWidth] = React.useState(640);
 
   const speedUp = () => {
     if (playBackRateIndex >= playBackRates.length - 1) {
@@ -53,6 +55,9 @@ const YouTubePlayerWithControls = ({
     setVideoHeight(entries[0].target.clientHeight);
   });
 
+  const handleVideoWidthUpdate = (_: any, { calculations }: { calculations: { width: number } }) =>
+    setVideoWidth(calculations.width);
+
   React.useEffect(() => {
     if (videoRef && videoRef.clientHeight) {
       videoResizeObserver.observe(videoRef);
@@ -66,28 +71,30 @@ const YouTubePlayerWithControls = ({
 
   return (
     <div ref={setVideoRef as any} className="videoWrapper">
-      <div key={`${start}-${end}`}>
-        <YouTubePlayer
-          {...{ videoId, seconds, autoplay, start, end, playing, playBackRate }}
-          controls={false}
-          onStateChange={(state: any) => {
-            setState(state);
-            switch (state) {
-              case 'playing':
-                setPlaying(true);
-                break;
+      <Visibility onUpdate={handleVideoWidthUpdate}>
+        <div key={`${start}-${end}`}>
+          <YouTubePlayer
+            {...{ videoId, seconds, autoplay, start, end, playing, playBackRate }}
+            controls={false}
+            onStateChange={(state: any) => {
+              setState(state);
+              switch (state) {
+                case 'playing':
+                  setPlaying(true);
+                  break;
 
-              case 'paused':
-              case 'ended':
-                setPlaying(false);
-                break;
+                case 'paused':
+                case 'ended':
+                  setPlaying(false);
+                  break;
 
-              default:
-            }
-          }}
-          onSecondsChange={setSeconds}
-        />
-      </div>
+                default:
+              }
+            }}
+            onSecondsChange={setSeconds}
+          />
+        </div>
+      </Visibility>
       {controls && (
         <div className="videoControls" style={{ paddingTop: videoHeight + 20 }}>
           <Button.Group>
@@ -151,7 +158,7 @@ const YouTubePlayerWithControls = ({
           <Slider
             start={[seconds]}
             range={{ min: Math.round(start), max: Math.round(end) }}
-            // width={640}
+            width={videoWidth - 60}
             onHandleUpdate={(i: any, value: any) => setSeconds(value)}
             pips={true}
             offsetTooltip={offsetTooltip}
