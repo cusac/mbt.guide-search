@@ -6,6 +6,7 @@ import logo from '../images/logo-wide.png';
 import { RootState } from 'store';
 import { history } from 'utils';
 import { Media } from './Media';
+import AppFooter from './AppFooter';
 
 const Layout = ({ children }: { children: any }) => {
   const [contextRef, setContextRef] = React.useState(undefined);
@@ -18,6 +19,7 @@ const Layout = ({ children }: { children: any }) => {
     <div>
       <AppHeader />
       <div className="layout-content">{children}</div>
+      <AppFooter />
     </div>
   );
 };

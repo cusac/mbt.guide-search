@@ -213,12 +213,6 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
           </Grid.Row>
         </Grid>
       </div>
-
-      <div className="footer">
-        2014 © My Big Toe LLC.
-        <a href="https://www.my-big-toe.com/privacy-notice/">Privacy Notice</a> |
-        <a href="https://www.my-big-toe.com/shipping-returns/">Shipping & Returns</a> <br />
-      </div>
     </div>
   );
 };

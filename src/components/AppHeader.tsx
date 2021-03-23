@@ -1,22 +1,12 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout, RootState } from 'store';
-import * as components from '../components';
-import * as utils from '../utils';
-import { toastError } from '../utils';
-import logo from '../images/logo-dark.png';
-import { Dropdown, Image, Container } from 'semantic-ui-react';
-import { Media, mediaBreakpoints } from './Media';
 import { useMediaQuery } from 'react-responsive';
-
-const { Button, Grid, Searchbar, Icon, Auth, Header, Menu, Link } = components;
+import { Media, mediaBreakpoints } from './Media';
 
 const AppHeader = (): any => {
   const [loading, setLoading] = React.useState(false);
   const [visible, setVisible] = React.useState(true);
 
   const toggleVisibility = () => {
-    console.log('VISIBLE:', visible);
     setVisible(!visible);
   };
 
@@ -182,13 +172,13 @@ const AppHeader = (): any => {
                   id="menu-item-1010"
                   className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1000 current_page_item menu-item-1010"
                 >
-                  <a href="https://www.my-big-toe.com/support/" aria-current="page">
+                  <a href="" aria-current="page">
                     Video Search
                   </a>
                 </li>
                 <li
                   id="menu-item-1022"
-                  className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1016 current_page_item menu-item-1022"
+                  className="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-1016 current_page_item menu-item-1022"
                 >
                   <a href="https://www.my-big-toe.com/support/" aria-current="page">
                     Support MBT
@@ -225,12 +215,6 @@ const AppHeader = (): any => {
   );
 };
 
-AppHeader.defaultProps = {
-  showSearchbar: false,
-  onHandleSubmit: () => undefined,
-  currentVideoId: '',
-  currentSegmentId: '',
-  searchType: 'video',
-};
+AppHeader.defaultProps = {};
 
 export default AppHeader;

@@ -1251,9 +1251,38 @@ body {
   }
 }
 
+.AppFooter {
+  .footer {
+    font-size: 12px;
+    padding: 30px 0;
+    color: #26354a;
+    background: #dcd6cc;
+    border-top: 1px solid #d6d0c7;
+  }
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .text-center {
+    text-align: center;
+  }
+}
+
 /* layout */
 .layout-content {
-  padding-top: 210px;
+  padding-top: 10px;
   padding-right: 1rem;
   padding-left: 1rem;
 }
@@ -1349,13 +1378,13 @@ body {
   width: 100%;
 }
 
-.footer {
-  height: 50px;
-  background-color: #ded6c8;
-  padding: 17px;
-  margin-top: 100px;
-  width: 100%;
-}
+// .footer {
+//   height: 50px;
+//   background-color: #ded6c8;
+//   padding: 17px;
+//   margin-top: 100px;
+//   width: 100%;
+// }
 
 .vidTitle {
   text-align: left;

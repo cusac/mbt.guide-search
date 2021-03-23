@@ -29,6 +29,7 @@ export { default as Searchbar } from './Searchbar';
 export { default as VideoList } from './VideoList';
 export { default as SegmentList } from './SegmentList';
 export { default as AppHeader } from './AppHeader';
+export { default as AppFooter } from './AppFooter';
 export { default as Loading } from './Loading';
 export { default as YouTubePlayerWithControls } from './YouTubePlayerWithControls';
 export { default as LandingPage } from './LandingPage';
