@@ -6,7 +6,7 @@ import { Media, mediaBreakpoints } from './Media';
 
 const AppHeader = (): any => {
   const [loading, setLoading] = React.useState(false);
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
   const [appHeaderRef, setAppHeaderRef] = React.useState(undefined as HTMLDivElement | undefined);
 
   const toggleVisibility = () => {

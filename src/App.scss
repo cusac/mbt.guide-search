@@ -1382,6 +1382,13 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .search-bar.ui.segment {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
 .headerBreak {
   margin-top: -15px;
   background-color: rgb(69, 83, 94);
