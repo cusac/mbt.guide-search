@@ -84,7 +84,9 @@ const SegmentDetails = ({ segment }: { segment: Segment }) => {
         </Container>
       ) : (
         <Container>
-          <Divider horizontal>From Video</Divider>
+          <Divider horizontal>
+            <Label>From Video</Label>
+          </Divider>
           <List horizontal bulleted style={{ textAlign: 'left' }}>
             <List.Item>
               <List.Content>{segment.videoTitle}</List.Content>
@@ -95,11 +97,17 @@ const SegmentDetails = ({ segment }: { segment: Segment }) => {
               </List.Content>
             </List.Item>
           </List>
-          <Divider horizontal>Description</Divider>
+          <Divider horizontal>
+            <Label>Description</Label>
+          </Divider>
           {segment.description || 'No description available.'}
-          <Divider horizontal>Segment Length</Divider>
+          <Divider horizontal>
+            <Label>Segment Length</Label>
+          </Divider>
           {utils.timeFormat.to(segment.end - segment.start)}
-          <Divider horizontal>Tags</Divider>
+          <Divider horizontal>
+            <Label>Tags</Label>
+          </Divider>
           <List horizontal>
             {segmentTags.map(tag => (
               <List.Item

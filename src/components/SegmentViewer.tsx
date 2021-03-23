@@ -40,12 +40,12 @@ const SegmentViewer = ({ segment }: { segment: any }) => {
         offsetTooltip={true}
       />
 
-      <Button style={{ margin: 15, marginTop: 50 }}>
+      {/* <Button style={{ margin: 15, marginTop: 50 }}>
         <Icon name="edit" />
         <Link to={{ pathname: `https://mbt.guide` }} target="_blank">
           Create Your Own Video Segments!
         </Link>
-      </Button>
+      </Button> */}
 
       <br />
       <SegmentDetails segment={segment} />
