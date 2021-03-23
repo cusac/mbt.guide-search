@@ -194,7 +194,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
               width={isSmallComputer ? 16 : 5}
             >
               {isSmallComputer ? (
-                <Divider horizontal style={{ marginBottom: '40px' }}>
+                <Divider horizontal style={{ marginTop: '40px', marginBottom: '40px' }}>
                   Search Results
                 </Divider>
               ) : (

@@ -10,6 +10,7 @@ export type Segment = {
   _id?: string;
   tags?: Tag[] | SegmentTag[];
   video: Video | Video['_id'];
+  videoTitle: string;
   owner: User | User['_id'];
   ownerEmail: string;
   segmentId: string;

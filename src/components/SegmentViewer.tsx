@@ -4,6 +4,7 @@ import { RootState, setLastViewedSegmentId, setSearchText, useAppDispatch } from
 import * as components from '../components';
 import { Button, Container, Grid, Icon, Label, Link, List } from '../components';
 import * as utils from '../utils';
+import SegmentDetails from './SegmentDetails';
 
 const SegmentViewer = ({ segment }: { segment: any }) => {
   const dispatch = useAppDispatch();
@@ -47,69 +48,7 @@ const SegmentViewer = ({ segment }: { segment: any }) => {
       </Button>
 
       <br />
-      <Container>
-        <Grid relaxed celled="internally">
-          <Grid.Row>
-            <Grid.Column verticalAlign="middle" width={3}>
-              <Label>From Video:</Label>
-            </Grid.Column>
-            <Grid.Column textAlign="left" width={13}>
-              <List horizontal bulleted>
-                <List.Item>
-                  <List.Content>{(segment as any).videoTitle}</List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Content>
-                    {utils.timeFormat.to((segment as any).start)} -{' '}
-                    {utils.timeFormat.to((segment as any).end)}
-                  </List.Content>
-                </List.Item>
-              </List>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column verticalAlign="middle" width={3}>
-              <Label>Description:</Label>
-            </Grid.Column>
-            <Grid.Column textAlign="left" width={13}>
-              {(segment as any).description || 'No description available.'}
-            </Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row>
-            <Grid.Column verticalAlign="middle" width={3}>
-              <Label>Segment Length:</Label>
-            </Grid.Column>
-            <Grid.Column textAlign="left" width={13}>
-              {utils.timeFormat.to((segment as any).end - (segment as any).start)}
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column verticalAlign="middle" width={3}>
-              <Label>Tags:</Label>
-            </Grid.Column>
-            <Grid.Column textAlign="left" width={13}>
-              <List horizontal bulleted>
-                {(segment as any).tags.map((tag: any) => (
-                  <List.Item
-                    key={tag.tag._id}
-                    onClick={() => {
-                      utils.history.push(`/${segment.segmentId}?search=${tag.tag.name}`);
-                      dispatch(setSearchText({ searchText: tag.tag.name }));
-                    }}
-                  >
-                    <List.Content>
-                      <List.Header>
-                        <a>{tag.tag.name}</a>
-                      </List.Header>
-                    </List.Content>
-                  </List.Item>
-                ))}
-              </List>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
+      <SegmentDetails segment={segment} />
     </div>
   );
 };
