@@ -16,7 +16,7 @@ const AppHeader = (): any => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: mediaBreakpoints.largescreen });
   const isTabletOrMobile = useMediaQuery({ maxWidth: mediaBreakpoints.largescreen });
   const isSmallComputer = useMediaQuery({ maxWidth: mediaBreakpoints.smallComputer });
-  const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
+  const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet - 1 });
 
   const dispatch = useAppDispatch();
 
