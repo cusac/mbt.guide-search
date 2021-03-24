@@ -6,6 +6,7 @@ import { AxiosErrorData } from '../../types';
 export type MainStoreAction = '';
 
 export type MainState = {
+  appHeaderHeight: number;
   previousView: 'video' | 'segment';
   showSearchbar: boolean;
   errors: Record<MainStoreAction, Error | AxiosErrorData | undefined>;
@@ -19,6 +20,7 @@ export type MainState = {
  */
 
 const initalVideoState: MainState = {
+  appHeaderHeight: 10,
   errors: {} as any,
   previousView: 'video',
   showSearchbar: true,
@@ -28,6 +30,10 @@ export const mainStore = createSlice({
   name: 'main',
   initialState: initalVideoState,
   reducers: {
+    setAppHeaderHeight(state, { payload }: PayloadAction<{ appHeaderHeight: number }>) {
+      const { appHeaderHeight } = payload;
+      state.appHeaderHeight = appHeaderHeight - 130;
+    },
     setPreviousView(state, { payload }: PayloadAction<{ previousView: 'video' | 'segment' }>) {
       const { previousView } = payload;
       state.previousView = previousView;
@@ -50,7 +56,7 @@ export const mainStore = createSlice({
   },
 });
 
-export const { setPreviousView, setShowSearchbar } = mainStore.actions;
+export const { setAppHeaderHeight, setPreviousView, setShowSearchbar } = mainStore.actions;
 
 //#region Async Actions (Thunks)
 /**

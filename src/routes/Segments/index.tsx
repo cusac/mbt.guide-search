@@ -1,8 +1,10 @@
 import { isEmpty } from 'lodash';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import { useLocation } from 'react-router-dom';
 import ResizeObserver from 'resize-observer-polyfill';
+import { Divider } from 'semantic-ui-react';
 import {
   RootState,
   searchSegments,
@@ -16,6 +18,7 @@ import {
 } from 'store';
 import * as components from '../../components';
 import LandingPage from '../../components/LandingPage';
+import { mediaBreakpoints } from '../../components/Media';
 import SegmentViewer from '../../components/SegmentViewer';
 import * as services from '../../services';
 import * as utils from '../../utils';
@@ -37,15 +40,19 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
     undefined as HTMLDivElement | undefined
   );
   const [columnHeight, setColumnHeight] = React.useState(1024);
+  const [segmentListHeader, setSegmentListHeader] = React.useState('');
 
   const lastViewedSegmentId = useSelector((state: RootState) => state.video.lastViewedSegmentId);
   const loadingSegments = useSelector((state: RootState) => state.video.loadingSegments);
   const searchSegmentsResult = useSelector((state: RootState) => state.video.searchSegmentsResult);
   const searchText = useSelector((state: RootState) => state.video.searchText);
+  const hasSearched = useSelector((state: RootState) => state.video.hasSearched);
 
   const dispatch = useAppDispatch();
 
   const query = useQuery();
+
+  const isSmallComputer = useMediaQuery({ maxWidth: mediaBreakpoints.smallComputer });
 
   const selectSegment = async (selectSegmentId: string) => {
     dispatch(setLastViewedSegmentId({ lastViewedSegmentId: selectSegmentId }));
@@ -121,6 +128,10 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   }, [searchSegmentsResult]);
 
   React.useEffect(() => {
+    setSegmentListHeader(hasSearched ? 'Search Results' : 'More Segments');
+  }, [hasSearched]);
+
+  React.useEffect(() => {
     if (videoColumnRef && videoColumnRef.clientHeight) {
       videoColumnResizeObserver.observe(videoColumnRef);
     }
@@ -162,7 +173,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
       <div>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={11}>
+            <Grid.Column width={isSmallComputer ? 16 : 11}>
               <Searchbar />
 
               {!segmentId ? (
@@ -180,7 +191,20 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
               )}
             </Grid.Column>
 
-            <Grid.Column style={{ color: 'white' }} verticalAlign="middle" width={5}>
+            <Grid.Column
+              style={{ color: 'white' }}
+              verticalAlign="middle"
+              width={isSmallComputer ? 16 : 5}
+            >
+              <Divider
+                horizontal
+                style={{
+                  marginTop: isSmallComputer ? '40px' : '20px',
+                  marginBottom: isSmallComputer ? '40px' : '45px',
+                }}
+              >
+                {segmentListHeader}
+              </Divider>
               {!loadingSegments ? (
                 <div>
                   {segments && segments.length > 0 ? (
@@ -212,12 +236,6 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </div>
-
-      <div className="footer">
-        2014 © My Big Toe LLC.
-        <a href="https://www.my-big-toe.com/privacy-notice/">Privacy Notice</a> |
-        <a href="https://www.my-big-toe.com/shipping-returns/">Shipping & Returns</a> <br />
       </div>
     </div>
   );

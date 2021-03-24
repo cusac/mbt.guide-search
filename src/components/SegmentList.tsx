@@ -1,6 +1,8 @@
 import React from 'react';
-import SegmentItem from './SegmentItem';
+import { useMediaQuery } from 'react-responsive';
 import { Segment } from 'types';
+import { mediaBreakpoints } from '../components/Media';
+import SegmentItem from './SegmentItem';
 
 const SegmentList = ({
   segments,
@@ -9,6 +11,8 @@ const SegmentList = ({
   segments: Segment[];
   handleSegmentSelect: (segment: Segment) => any;
 }) => {
+  const isSmallComputer = useMediaQuery({ maxWidth: mediaBreakpoints.smallComputer });
+
   const renderedSegments = segments.map(segment => {
     return (
       <SegmentItem
@@ -19,6 +23,10 @@ const SegmentList = ({
     );
   });
 
-  return <div className="ui relaxed divided list">{renderedSegments}</div>;
+  return (
+    <div className="ui relaxed divided list" style={{ padding: isSmallComputer ? '20px 50px' : 0 }}>
+      {renderedSegments}
+    </div>
+  );
 };
 export default SegmentList;
