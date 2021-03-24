@@ -40,11 +40,13 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
     undefined as HTMLDivElement | undefined
   );
   const [columnHeight, setColumnHeight] = React.useState(1024);
+  const [segmentListHeader, setSegmentListHeader] = React.useState('');
 
   const lastViewedSegmentId = useSelector((state: RootState) => state.video.lastViewedSegmentId);
   const loadingSegments = useSelector((state: RootState) => state.video.loadingSegments);
   const searchSegmentsResult = useSelector((state: RootState) => state.video.searchSegmentsResult);
   const searchText = useSelector((state: RootState) => state.video.searchText);
+  const hasSearched = useSelector((state: RootState) => state.video.hasSearched);
 
   const dispatch = useAppDispatch();
 
@@ -126,6 +128,10 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   }, [searchSegmentsResult]);
 
   React.useEffect(() => {
+    setSegmentListHeader(hasSearched ? 'Search Results' : 'More Segments');
+  }, [hasSearched]);
+
+  React.useEffect(() => {
     if (videoColumnRef && videoColumnRef.clientHeight) {
       videoColumnResizeObserver.observe(videoColumnRef);
     }
@@ -190,13 +196,15 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
               verticalAlign="middle"
               width={isSmallComputer ? 16 : 5}
             >
-              {isSmallComputer ? (
-                <Divider horizontal style={{ marginTop: '40px', marginBottom: '40px' }}>
-                  Search Results
-                </Divider>
-              ) : (
-                undefined
-              )}
+              <Divider
+                horizontal
+                style={{
+                  marginTop: isSmallComputer ? '40px' : '20px',
+                  marginBottom: isSmallComputer ? '40px' : '45px',
+                }}
+              >
+                {segmentListHeader}
+              </Divider>
               {!loadingSegments ? (
                 <div>
                   {segments && segments.length > 0 ? (

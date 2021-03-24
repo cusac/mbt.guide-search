@@ -236,6 +236,7 @@ export const searchSegmentsSuccess = (searchSegmentsResult: Segment[]): AsyncApp
   dispatch,
   getState
 ) => {
+  dispatch(setHasSearched({ hasSearched: true }));
   dispatch(setSearchSegmentsResult({ searchSegmentsResult }));
   dispatch(clearError({ action: 'searchSegments' }));
 };
