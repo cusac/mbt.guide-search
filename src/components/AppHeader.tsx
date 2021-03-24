@@ -13,10 +13,11 @@ const AppHeader = (): any => {
     setVisible(!visible);
   };
 
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: mediaBreakpoints.largescreen });
-  const isTabletOrMobile = useMediaQuery({ maxWidth: mediaBreakpoints.largescreen });
   const isSmallComputer = useMediaQuery({ maxWidth: mediaBreakpoints.smallComputer });
-  const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet - 1 });
+  const isTablet = useMediaQuery({
+    query: `(max-height: ${mediaBreakpoints.tablet - 1}px), (max-width: ${mediaBreakpoints.tablet -
+      1}px)`,
+  });
 
   const dispatch = useAppDispatch();
 

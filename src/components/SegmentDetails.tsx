@@ -10,9 +10,6 @@ import * as utils from '../utils';
 const SegmentDetails = ({ segment }: { segment: Segment }) => {
   const dispatch = useAppDispatch();
 
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: mediaBreakpoints.largescreen });
-  const isTabletOrMobile = useMediaQuery({ maxWidth: mediaBreakpoints.largescreen });
-  const isSmallComputer = useMediaQuery({ maxWidth: mediaBreakpoints.smallComputer });
   const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
 
   const segmentTags = (segment.tags as SegmentTag[]) || [];

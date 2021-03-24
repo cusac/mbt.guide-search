@@ -9,7 +9,10 @@ import AppFooter from './AppFooter';
 const Layout = ({ children }: { children: any }) => {
   const [contextRef, setContextRef] = React.useState(undefined);
 
-  const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
+  const isTablet = useMediaQuery({
+    query: `(max-height: ${mediaBreakpoints.tablet}px), (max-width: ${mediaBreakpoints.tablet -
+      1}px)`,
+  });
 
   const appHeaderHeight = useSelector((state: RootState) => state.main.appHeaderHeight);
 

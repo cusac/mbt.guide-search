@@ -50,10 +50,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
 
   const query = useQuery();
 
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: mediaBreakpoints.largescreen });
-  const isTabletOrMobile = useMediaQuery({ maxWidth: mediaBreakpoints.largescreen });
   const isSmallComputer = useMediaQuery({ maxWidth: mediaBreakpoints.smallComputer });
-  const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
 
   const selectSegment = async (selectSegmentId: string) => {
     dispatch(setLastViewedSegmentId({ lastViewedSegmentId: selectSegmentId }));

@@ -50,6 +50,12 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+@media (max-height: 512px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
 .AppHeader {
   font-size: 16px;
   line-height: 26px;
@@ -58,6 +64,11 @@ body {
   text-rendering: optimizelegibility;
   overflow-x: hidden;
   padding-top: 90px;
+
+  @media (max-height: 512px) {
+    padding-top: 0px;
+    margin-bottom: 20px;
+  }
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
@@ -435,6 +446,12 @@ body {
   @media (min-width: 768px) and (min-height: 768px) {
     .navbar {
       border-radius: 4px;
+    }
+  }
+  @media (max-height: 512px) {
+    .navbar-fixed-top,
+    .navbar-fixed-bottom {
+      position: relative;
     }
   }
 
