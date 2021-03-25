@@ -231,6 +231,15 @@ const AppHeader = (): any => {
           </div>
         </nav>
       </header>
+      <div className="page-heading">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1 className="entry-title"></h1>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
