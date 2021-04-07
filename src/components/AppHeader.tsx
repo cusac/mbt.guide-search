@@ -208,7 +208,7 @@ const AppHeader = (): any => {
                   id="menu-item-324"
                   className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-324"
                 >
-                  <a href="https://www.my-big-toe.com/contact/">Contact</a>
+                  <a href="https://mbt.guide/contact">Contact</a>
                   <ul className="sub-menu">
                     <li
                       id="menu-item-420"
@@ -231,6 +231,15 @@ const AppHeader = (): any => {
           </div>
         </nav>
       </header>
+      <div className="page-heading">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1 className="entry-title"></h1>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
