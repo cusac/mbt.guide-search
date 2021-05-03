@@ -102,9 +102,18 @@ const AppHeader = (): any => {
                 </li>
                 <li
                   id="menu-item-9"
-                  className="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"
+                  className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-4 current_page_item menu-item-9"
                 >
-                  <a href="/media/">Videos</a>
+                  <a href="https://videosearch.my-big-toe.com">Video Search</a>
+
+                  <ul className="sub-menu">
+                    <li
+                      id="menu-item-241"
+                      className="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"
+                    >
+                      <a href="https://www.my-big-toe.com/media/">Videos</a>
+                    </li>
+                  </ul>
                 </li>
                 <li
                   id="menu-item-10"
@@ -187,14 +196,6 @@ const AppHeader = (): any => {
                       </a>
                     </li>
                   </ul>
-                </li>
-                <li
-                  id="menu-item-1010"
-                  className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1000 current_page_item menu-item-1010"
-                >
-                  <a href="" aria-current="page">
-                    Video Search
-                  </a>
                 </li>
                 <li
                   id="menu-item-1022"

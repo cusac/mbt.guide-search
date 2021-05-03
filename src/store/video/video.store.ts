@@ -237,6 +237,8 @@ export const searchSegmentsSuccess = (searchSegmentsResult: Segment[]): AsyncApp
   getState
 ) => {
   dispatch(setHasSearched({ hasSearched: true }));
+  // Filter out any segments that weren't found in the database
+  searchSegmentsResult = searchSegmentsResult.filter(r => r !== null);
   dispatch(setSearchSegmentsResult({ searchSegmentsResult }));
   dispatch(clearError({ action: 'searchSegments' }));
 };
