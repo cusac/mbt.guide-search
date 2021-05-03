@@ -23,8 +23,7 @@ const LandingPage = (): any => {
           <br />
           Just enter your topic of interest into the search bar above and press <i>Enter</i>.
           <br />
-          You can click on any video clip listed to the right to view it. And you can create your
-          own segments too.
+          You can click on any video clip listed to the right to view it.
           <br />
           <br />
           Have fun!
