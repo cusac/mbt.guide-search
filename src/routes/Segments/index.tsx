@@ -23,6 +23,7 @@ import SegmentViewer from '../../components/SegmentViewer';
 import * as services from '../../services';
 import * as utils from '../../utils';
 import { captureAndLog, toastError } from '../../utils';
+import { Segment } from 'types';
 
 const { Grid, SegmentList, Loading, Searchbar } = components;
 
@@ -147,13 +148,17 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
       try {
         setLoadingSelectedSegment(true);
 
-        const segment = (
+        const segment: Segment = (
           await (services as any).repository.segment.list({
             $embed: ['video', 'tags'],
             segmentId: segmentId,
           })
         ).data.docs[0];
-        setSelectedSegment(segment);
+
+        // Log the view to the segment
+        await (services as any).stats.logSegmentView({ segmentId: segment._id });
+
+        setSelectedSegment(segment as any);
       } catch (err) {
         setLoadingSelectedSegment(false);
         captureAndLog({ file: 'Segments', method: 'fetchSelectedSegment', err });
