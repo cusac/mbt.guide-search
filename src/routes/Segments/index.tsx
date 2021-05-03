@@ -89,6 +89,9 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
       }
     }
 
+    // We're piggybacking this view to update the stats for now
+    services.stats.logStats();
+
     const queryText = query.get('search');
     setSearchTextQuery(queryText || '');
 
