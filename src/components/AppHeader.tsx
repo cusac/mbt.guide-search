@@ -119,7 +119,7 @@ const AppHeader = (): any => {
                   id="menu-item-10"
                   className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10"
                 >
-                  <a href="/store1">Store</a>
+                  <a href="https://www.my-big-toe.com/store1">Store</a>
                   <ul className="sub-menu">
                     <li
                       id="menu-item-142"
