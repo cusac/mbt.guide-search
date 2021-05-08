@@ -104,14 +104,20 @@ const AppHeader = (): any => {
                   id="menu-item-9"
                   className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-4 current_page_item menu-item-9"
                 >
-                  <a href="https://videosearch.my-big-toe.com">Video Search</a>
+                  <a href="https://videosearch.my-big-toe.com">Videos</a>
 
                   <ul className="sub-menu">
                     <li
                       id="menu-item-241"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"
                     >
-                      <a href="https://www.my-big-toe.com/media/">Videos</a>
+                      <a href="https://videosearch.my-big-toe.com">Video Search</a>
+                    </li>
+                    <li
+                      id="menu-item-241"
+                      className="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"
+                    >
+                      <a href="https://www.my-big-toe.com/media/">YouTube Videos</a>
                     </li>
                   </ul>
                 </li>
