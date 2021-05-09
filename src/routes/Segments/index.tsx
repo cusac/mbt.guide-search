@@ -70,10 +70,23 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
       try {
         dispatch(setLoadingSegments({ loadingSegments: true }));
 
+        const $limit = 50;
+
+        const totalSegments = (
+          await (services as any).repository.segment.list({
+            $count: true,
+          })
+        ).data;
+
+        const pages = Math.floor(totalSegments / $limit) - 1;
+
+        const $page = Math.floor(Math.random() * pages);
+
         const segments = (
           await (services as any).repository.segment.list({
             $embed: ['video', 'tags'],
-            $limit: 50,
+            $limit,
+            $page,
           })
         ).data.docs;
 
