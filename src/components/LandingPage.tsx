@@ -53,19 +53,19 @@ const LandingPage = (): any => {
           <a href="https://www.patreon.com/mybigtoe" target="_blank" rel="noopener noreferrer">
             https://www.patreon.com/mybigtoe
           </a>
-          &nbsp;MBT’s Patreon account. Become a patron of MBT.
+          &nbsp;- MBT’s Patreon account. Become a patron of MBT.
           <br />
           <br />
           <a href="https://bit.ly/39lwhen​" target="_blank" rel="noopener noreferrer">
             https://bit.ly/39lwhen​
           </a>
-          &nbsp;One time donation link thru PayPal (no PayPal account required).
+          &nbsp;- One time donation link thru PayPal (no PayPal account required).
           <br />
           <br />
           <a href="mailto:mbtvolunteers@gmail.com" target="_blank" rel="noopener noreferrer">
             mbtvolunteers@gmail.com
           </a>
-          &nbsp;The connection for those who wish to volunteer
+          &nbsp;- The connection for those who wish to volunteer
         </p>
       </div>
     </React.Fragment>
