@@ -1,7 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from 'store';
-import { searchSegments, searchYTVideos, setSearchText } from '../store/video/video.store';
+import {
+  searchSegments,
+  searchYTVideos,
+  setSearchText,
+  refreshSegmentList,
+} from '../store/video/video.store';
 import { toastError } from '../utils/toastHelper';
 import Autosuggest from 'react-autosuggest';
 import { repository } from 'services';
@@ -25,7 +30,9 @@ const Searchbar = (): any => {
   };
 
   const search = async (text?: string) => {
-    if (searchType === 'segment') {
+    if (!text && !searchText) {
+      await dispatch(refreshSegmentList({}));
+    } else if (searchType === 'segment') {
       try {
         await dispatch(searchSegments({ term: text || searchText }));
       } catch (err) {

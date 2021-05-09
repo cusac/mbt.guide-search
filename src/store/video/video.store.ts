@@ -42,6 +42,7 @@ export type VideoState = {
   hasSearched: boolean;
   loadingSegments: boolean;
   loadingVideos: boolean;
+  segmentListTrigger: {};
   errors: Record<VideoStoreAction, Error | AxiosErrorData | undefined>;
 };
 
@@ -65,6 +66,7 @@ const initalVideoState: VideoState = {
   loadingVideos: false,
   lastViewedSegmentId: '',
   lastViewedVideoId: '',
+  segmentListTrigger: {},
 };
 
 export const videoStore = createSlice({
@@ -113,6 +115,11 @@ export const videoStore = createSlice({
       const { loadingVideos } = payload;
       state.loadingVideos = loadingVideos;
     },
+    refreshSegmentList(state, { payload }: PayloadAction<{}>) {
+      state.segmentListTrigger = {};
+      state.hasSearched = false;
+      state.searchText = '';
+    },
     setError(
       state,
       { payload }: PayloadAction<{ action: VideoStoreAction; err: Error | AxiosErrorData }>
@@ -137,6 +144,7 @@ export const {
   setHasSearched,
   setLoadingSegments,
   setLoadingVideos,
+  refreshSegmentList,
 } = videoStore.actions;
 const { setError, clearError } = videoStore.actions;
 

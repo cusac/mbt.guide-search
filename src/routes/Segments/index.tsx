@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation } from 'react-router-dom';
 import ResizeObserver from 'resize-observer-polyfill';
-import { Divider } from 'semantic-ui-react';
+import { Divider, Button, Icon } from 'semantic-ui-react';
 import {
   RootState,
   searchSegments,
@@ -15,6 +15,7 @@ import {
   setSearchType,
   setShowSearchbar,
   useAppDispatch,
+  refreshSegmentList,
 } from 'store';
 import * as components from '../../components';
 import LandingPage from '../../components/LandingPage';
@@ -48,6 +49,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   const searchSegmentsResult = useSelector((state: RootState) => state.video.searchSegmentsResult);
   const searchText = useSelector((state: RootState) => state.video.searchText);
   const hasSearched = useSelector((state: RootState) => state.video.hasSearched);
+  const segmentListTrigger = useSelector((state: RootState) => state.video.segmentListTrigger);
 
   const dispatch = useAppDispatch();
 
@@ -64,44 +66,47 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
     setColumnHeight(entries[0].target.clientHeight);
   });
 
-  // Fetch the default list of segments from the most recent segments
-  React.useEffect(() => {
-    async function fetchSegments() {
-      try {
-        dispatch(setLoadingSegments({ loadingSegments: true }));
+  const shuffleSegments = () => {
+    dispatch(refreshSegmentList({}));
+  };
 
-        const $limit = 50;
+  async function fetchRandomSegments() {
+    try {
+      dispatch(setLoadingSegments({ loadingSegments: true }));
 
-        const totalSegments = (
-          await (services as any).repository.segment.list({
-            $count: true,
-          })
-        ).data;
+      const $limit = 50;
 
-        const pages = Math.floor(totalSegments / $limit) - 1;
+      const totalSegments = (
+        await (services as any).repository.segment.list({
+          $count: true,
+        })
+      ).data;
 
-        const $page = Math.floor(Math.random() * pages);
+      const pages = Math.floor(totalSegments / $limit) - 1;
 
-        const segments = (
-          await (services as any).repository.segment.list({
-            $embed: ['video', 'tags'],
-            $limit,
-            $page,
-          })
-        ).data.docs;
+      const $page = Math.floor(Math.random() * pages);
 
-        setSegments(segments);
-      } catch (err) {
-        captureAndLog({ file: 'Segments', method: 'fetchSegments', err });
-        toastError(
-          'There was an error fetching segment data. Please refresh the page and try again.',
-          err
-        );
-      } finally {
-        dispatch(setLoadingSegments({ loadingSegments: false }));
-      }
+      const segments = (
+        await (services as any).repository.segment.list({
+          $embed: ['video', 'tags'],
+          $limit,
+          $page,
+        })
+      ).data.docs;
+
+      setSegments(segments);
+    } catch (err) {
+      captureAndLog({ file: 'Segments', method: 'fetchRandomSegments', err });
+      toastError(
+        'There was an error fetching segment data. Please refresh the page and try again.',
+        err
+      );
+    } finally {
+      dispatch(setLoadingSegments({ loadingSegments: false }));
     }
+  }
 
+  React.useEffect(() => {
     // We're piggybacking this view to update the stats for now
     services.stats.logStats();
 
@@ -121,9 +126,15 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
     dispatch(setShowSearchbar({ showSearchbar: true }));
     dispatch(setLastViewedSegmentId({ lastViewedSegmentId: currentSegmentId }));
     if (isEmpty(searchSegmentsResult)) {
-      fetchSegments();
+      fetchRandomSegments();
     }
   }, []);
+
+  React.useEffect(() => {
+    fetchRandomSegments();
+    const url = segmentId ? `/${segmentId}?search=` : `/?search=`;
+    utils.history.push(url);
+  }, [segmentListTrigger]);
 
   React.useEffect(() => {
     const queryText = query.get('search');
@@ -217,6 +228,15 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
               verticalAlign="middle"
               width={isSmallComputer ? 16 : 5}
             >
+              <Button
+                icon
+                onClick={() => {
+                  shuffleSegments();
+                }}
+              >
+                Shuffle Segments
+                <Icon className={'shuffle'} />
+              </Button>
               <Divider
                 horizontal
                 style={{
