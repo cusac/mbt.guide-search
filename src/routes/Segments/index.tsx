@@ -156,7 +156,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   }, [searchSegmentsResult]);
 
   React.useEffect(() => {
-    setSegmentListHeader(hasSearched ? 'Search Results' : 'More Segments');
+    setSegmentListHeader(hasSearched ? 'Search Results' : 'Segment Samples');
   }, [hasSearched]);
 
   React.useEffect(() => {
