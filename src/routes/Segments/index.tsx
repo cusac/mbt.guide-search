@@ -211,7 +211,10 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
               <Searchbar />
 
               {!segmentId ? (
-                <LandingPage></LandingPage>
+                <div>
+                  <LandingPage></LandingPage>
+                  <ShareBar segment={selectedSegment}></ShareBar>
+                </div>
               ) : !loadingSelectedSegment ? (
                 selectedSegment ? (
                   <div ref={setVideoColumnRef as any}>
