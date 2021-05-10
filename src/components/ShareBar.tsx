@@ -39,6 +39,7 @@ import { Grid, Header } from 'semantic-ui-react';
 const ShareBar = ({ segment }: { segment?: Segment }): any => {
   const [shareUrl, setShareUrl] = React.useState(window.location.hostname);
   const [title, setTitle] = React.useState('MBT Video Search');
+  const [description, setDescription] = React.useState('Search for MBT video content.');
   const [header, setHeader] = React.useState('Share this Tool!');
 
   const searchType = useSelector((state: RootState) => state.video.searchType);
@@ -53,10 +54,12 @@ const ShareBar = ({ segment }: { segment?: Segment }): any => {
     if (segment) {
       setShareUrl(`${window.location.hostname}/${segment.segmentId}`);
       setTitle(`MBT: ${segment.title}`);
+      setDescription(`${segment.description}`);
       setHeader(`Share this Segment!`);
     } else {
       setShareUrl(`${window.location.hostname}`);
       setTitle(`MBT Video Search`);
+      setDescription(`Search for MBT video content.`);
       setHeader(`Share this Tool!`);
     }
   }, [segment]);
@@ -68,13 +71,18 @@ const ShareBar = ({ segment }: { segment?: Segment }): any => {
           <Header>{header}</Header>
         </Grid.Row>
         <Grid.Row>
-          <TwitterShareButton url={shareUrl} title={title} related={['@TomCampbell_MBT']}>
+          <TwitterShareButton
+            url={shareUrl}
+            title={title}
+            related={['@TomCampbell_MBT']}
+            hashtags={['mbt', 'theoryofeverything']}
+          >
             <TwitterIcon size={32} round />
           </TwitterShareButton>
-          <FacebookShareButton url={shareUrl} title={title}>
+          <FacebookShareButton url={shareUrl} quote={title} hashtag="theoryofeverything">
             <FacebookIcon size={32} round />
           </FacebookShareButton>
-          <LinkedinShareButton url={shareUrl} title={title}>
+          <LinkedinShareButton url={shareUrl} title={title} summary={description}>
             <LinkedinIcon size={32} round />
           </LinkedinShareButton>
           <PinterestShareButton
@@ -90,6 +98,14 @@ const ShareBar = ({ segment }: { segment?: Segment }): any => {
           <WhatsappShareButton url={shareUrl} title={title}>
             <WhatsappIcon size={32} round />
           </WhatsappShareButton>
+          <TumblrShareButton
+            url={shareUrl}
+            title={title}
+            tags={['mbt', 'theoryofeverything']}
+            caption={description}
+          >
+            <TumblrIcon size={32} round />
+          </TumblrShareButton>
         </Grid.Row>
         <Grid.Row></Grid.Row>
       </Grid>
