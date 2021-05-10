@@ -125,6 +125,8 @@ const SegmentDetails = ({ segment }: { segment: Segment }) => {
               </List.Item>
             ))}
           </List>
+          <br />
+          <br />
         </Container>
       )}
     </div>

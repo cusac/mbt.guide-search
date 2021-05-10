@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { isEmpty } from 'lodash';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -25,6 +26,7 @@ import * as services from '../../services';
 import * as utils from '../../utils';
 import { captureAndLog, toastError } from '../../utils';
 import { Segment } from 'types';
+import ShareBar from 'components/ShareBar';
 
 const { Grid, SegmentList, Loading, Searchbar } = components;
 
@@ -36,7 +38,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   const [error, setError] = React.useState();
   const [loadingSelectedSegment, setLoadingSelectedSegment] = React.useState(true);
   const [segments, setSegments] = React.useState(undefined as Array<any> | void);
-  const [selectedSegment, setSelectedSegment] = React.useState();
+  const [selectedSegment, setSelectedSegment] = React.useState(undefined as Segment | undefined);
   const [searchTextQuery, setSearchTextQuery] = React.useState('');
   const [videoColumnRef, setVideoColumnRef] = React.useState(
     undefined as HTMLDivElement | undefined
@@ -214,6 +216,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
                 selectedSegment ? (
                   <div ref={setVideoColumnRef as any}>
                     <SegmentViewer segment={selectedSegment} />
+                    <ShareBar segment={selectedSegment}></ShareBar>
                   </div>
                 ) : (
                   <h2 style={{ color: 'black' }}>Segment not found. </h2>
