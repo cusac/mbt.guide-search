@@ -184,10 +184,12 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
           })
         ).data.docs[0];
 
-        // Log the view to the segment
-        await (services as any).stats.logSegmentView({ segmentId: segment._id });
+        if (segment) {
+          // Log the view to the segment
+          await (services as any).stats.logSegmentView({ segmentId: segment._id });
 
-        setSelectedSegment(segment as any);
+          setSelectedSegment(segment as any);
+        }
       } catch (err) {
         setLoadingSelectedSegment(false);
         captureAndLog({ file: 'Segments', method: 'fetchSelectedSegment', err });
