@@ -29,7 +29,17 @@ const SegmentDetails = ({ segment }: { segment: Segment }) => {
               <Grid.Column textAlign="left" width={13}>
                 <List horizontal bulleted>
                   <List.Item>
-                    <List.Content>{segment.videoTitle}</List.Content>
+                    <List.Content>
+                      <a
+                        href={`https://youtube.com/watch?v=${(segment as any).videoYtId}&t=${
+                          segment.start
+                        }`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {segment.videoTitle}
+                      </a>
+                    </List.Content>
                   </List.Item>
                   <List.Item>
                     <List.Content>
