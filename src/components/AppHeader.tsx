@@ -1,8 +1,9 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import ResizeObserver from 'resize-observer-polyfill';
-import { setAppHeaderHeight, useAppDispatch } from 'store';
+import { setAppHeaderHeight, useAppDispatch, initApp } from 'store';
 import { Media, mediaBreakpoints } from './Media';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AppHeader = (): any => {
   const [loading, setLoading] = React.useState(false);
@@ -34,6 +35,71 @@ const AppHeader = (): any => {
   // itemscope="itemscope"
   // itemscope=""
 
+  const applyStyleAndClass = (
+    style: any,
+    className: string,
+    childClassFilter?: string,
+    childStyle?: any,
+    childClassName?: string
+  ) => (e: any) => {
+    // Append new style
+    for (const key in style) {
+      e.currentTarget.style[key] = style[key];
+    }
+
+    // Append new class
+    e.currentTarget.className += ` ${className}`;
+
+    const children = e.currentTarget.children;
+
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i];
+
+      // Check if the child has the specified class
+      if (child.classList.contains(childClassFilter)) {
+        // Append new style
+        for (const key in childStyle) {
+          child.style[key] = childStyle[key];
+        }
+
+        // Append new class
+        child.className += ` ${childClassName}`;
+      }
+    }
+  };
+
+  const removeStyleAndClass = (
+    style: any,
+    className: string,
+    childClassFilter?: string,
+    childStyle?: any,
+    childClassName?: string
+  ) => (e: any) => {
+    // Remove applied style
+    for (const key in style) {
+      e.currentTarget.style[key] = null;
+    }
+
+    // Remove applied class
+    e.currentTarget.className = e.currentTarget.className.replace(` ${className}`, '');
+
+    const children = e.currentTarget.children;
+
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i];
+
+      // Check if the child has the specified class
+      if (child.classList.contains(childClassFilter)) {
+        // Append new style
+        for (const key in childStyle) {
+          child.style[key] = null;
+        }
+
+        child.className = child.className.replace(` ${childClassName}`, '');
+      }
+    }
+  };
+
   return (
     <div className="AppHeader">
       <header
@@ -54,7 +120,7 @@ const AppHeader = (): any => {
               >
                 <img
                   width="385"
-                  height="118"
+                  // height="118"
                   src="https://thomasc251.sg-host.com/wp-content/uploads/2023/05/A-Big-Picture-Theory-of-Everything-by-Tom-Campbell-black-full-size.png"
                   className="custom-logo"
                   alt="My Big TOE"
@@ -77,11 +143,31 @@ const AppHeader = (): any => {
                 <li
                   id="menu-item-19207"
                   className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-19207"
+                  onMouseOver={applyStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
+                  onMouseOut={removeStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
                 >
                   <a href="#" className="menu-link">
                     <span className="text-wrap">
                       About
-                      <i className="nav-arrow fa fa-angle-down" aria-hidden="true" role="img"></i>
+                      <FontAwesomeIcon
+                        // @ts-ignore
+                        icon="fa-solid fa-angle-down"
+                        className="nav-arrow fa fa-angle-down"
+                        aria-hidden="true"
+                        role="img"
+                      />
                     </span>
                   </a>
                   <ul className="sub-menu" style={{ opacity: 0, visibility: 'hidden' }}>
@@ -145,11 +231,33 @@ const AppHeader = (): any => {
                 <li
                   id="menu-item-12870"
                   className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-12870"
+                  onMouseOver={applyStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
+                  onMouseOut={removeStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
                 >
                   <a href="#" className="menu-link">
                     <span className="text-wrap">
                       Theory
-                      <i className="nav-arrow fa fa-angle-down" aria-hidden="true" role="img"></i>
+                      {/* <i className="nav-arrow fa fa-angle-down" aria-hidden="true" role="img"></i> */}
+                      {/* @ts-ignore */}
+                      <FontAwesomeIcon
+                        // @ts-ignore
+                        icon="fa-solid fa-angle-down"
+                        className="nav-arrow fa fa-angle-down"
+                        aria-hidden="true"
+                        role="img"
+                      />
                     </span>
                   </a>
                   <ul className="sub-menu" style={{ opacity: 0, visibility: 'hidden' }}>
@@ -221,11 +329,32 @@ const AppHeader = (): any => {
                 <li
                   id="menu-item-19208"
                   className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-19208"
+                  onMouseOver={applyStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
+                  onMouseOut={removeStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
                 >
                   <a href="#" className="menu-link">
                     <span className="text-wrap">
                       Explore
-                      <i className="nav-arrow fa fa-angle-down" aria-hidden="true" role="img"></i>
+                      {/* @ts-ignore */}
+                      <FontAwesomeIcon
+                        // @ts-ignore
+                        icon="fa-solid fa-angle-down"
+                        className="nav-arrow fa fa-angle-down"
+                        aria-hidden="true"
+                        role="img"
+                      />
                     </span>
                   </a>
                   <ul className="sub-menu" style={{ opacity: 0, visibility: 'hidden' }}>
@@ -311,11 +440,32 @@ const AppHeader = (): any => {
                 <li
                   id="menu-item-19209"
                   className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-19209"
+                  onMouseOver={applyStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
+                  onMouseOut={removeStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
                 >
                   <a href="#" className="menu-link">
                     <span className="text-wrap">
                       Connect
-                      <i className="nav-arrow fa fa-angle-down" aria-hidden="true" role="img"></i>
+                      {/* @ts-ignore */}
+                      <FontAwesomeIcon
+                        // @ts-ignore
+                        icon="fa-solid fa-angle-down"
+                        className="nav-arrow fa fa-angle-down"
+                        aria-hidden="true"
+                        role="img"
+                      />
                     </span>
                   </a>
                   <ul className="sub-menu" style={{ opacity: 0, visibility: 'hidden' }}>
@@ -362,11 +512,32 @@ const AppHeader = (): any => {
                 <li
                   id="menu-item-10198"
                   className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-10198"
+                  onMouseOver={applyStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
+                  onMouseOut={removeStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
                 >
                   <a href="#" className="menu-link">
                     <span className="text-wrap">
                       Shop
-                      <i className="nav-arrow fa fa-angle-down" aria-hidden="true" role="img"></i>
+                      {/* @ts-ignore */}
+                      <FontAwesomeIcon
+                        // @ts-ignore
+                        icon="fa-solid fa-angle-down"
+                        className="nav-arrow fa fa-angle-down"
+                        aria-hidden="true"
+                        role="img"
+                      />
                     </span>
                   </a>
                   <ul className="sub-menu" style={{ opacity: 0, visibility: 'hidden' }}>
@@ -429,11 +600,32 @@ const AppHeader = (): any => {
                 <li
                   id="menu-item-12867"
                   className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-12867"
+                  onMouseOver={applyStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
+                  onMouseOut={removeStyleAndClass(
+                    {},
+                    'sfHover',
+                    'sub-menu',
+                    { opacity: 1, visibility: 'visible', transition: 'opacity 300ms ease 0s' },
+                    ''
+                  )}
                 >
                   <a href="#" className="menu-link">
                     <span className="text-wrap">
                       Contribute
-                      <i className="nav-arrow fa fa-angle-down" aria-hidden="true" role="img"></i>
+                      {/* @ts-ignore */}
+                      <FontAwesomeIcon
+                        // @ts-ignore
+                        icon="fa-solid fa-angle-down"
+                        className="nav-arrow fa fa-angle-down"
+                        aria-hidden="true"
+                        role="img"
+                      />
                     </span>
                   </a>
                   <ul className="sub-menu" style={{ opacity: 0, visibility: 'hidden' }}>
@@ -461,7 +653,7 @@ const AppHeader = (): any => {
                     </li>
                   </ul>
                 </li>
-                <li className="woo-menu-icon wcmenucart-toggle-cart toggle-cart-widget">
+                {/* <li className="woo-menu-icon wcmenucart-toggle-cart toggle-cart-widget">
                   <a href="https://thomasc251.sg-host.com/en/cart/" className="wcmenucart">
                     <span className="wcmenucart-count">
                       <i className=" icon-handbag" aria-hidden="true" role="img"></i>
@@ -475,12 +667,12 @@ const AppHeader = (): any => {
                     href="https://thomasc251.sg-host.com/en/#/"
                     className="site-search-toggle search-dropdown-toggle"
                   >
-                    <span className="screen-reader-text">Toggle website search</span>
+                    <span className="screen-reader-text">T</span>
                     <i className=" icon-magnifier" aria-hidden="true" role="img"></i>
                   </a>
-                </li>
+                </li> */}
               </ul>
-              <div id="searchform-dropdown" className="header-searchform-wrap clr">
+              {/* <div id="searchform-dropdown" className="header-searchform-wrap clr">
                 <form
                   aria-label="Search this website"
                   role="search"
@@ -499,7 +691,7 @@ const AppHeader = (): any => {
                   />
                   <input type="hidden" name="lang" value="en" />
                 </form>
-              </div>
+              </div> */}
               {/* <!-- #searchform-dropdown --> */}
             </nav>
             {/* <!-- #site-navigation --> */}
@@ -703,16 +895,16 @@ const AppHeader = (): any => {
                 </ul>
               </li>
 
-              <li className="woo-menu-icon wcmenucart-toggle-cart toggle-cart-widget">
+              {/* <li className="woo-menu-icon wcmenucart-toggle-cart toggle-cart-widget">
                 <a href="https://thomasc251.sg-host.com/en/cart/" className="wcmenucart">
                   <span className="wcmenucart-count">
                     <i className=" icon-handbag" aria-hidden="true" role="img"></i>
                     <span className="wcmenucart-details count">0</span>
                   </span>
                 </a>
-              </li>
+              </li> */}
 
-              <li className="search-toggle-li">
+              {/* <li className="search-toggle-li">
                 <a
                   href="https://thomasc251.sg-host.com/en/#/"
                   className="site-search-toggle search-dropdown-toggle"
@@ -720,7 +912,7 @@ const AppHeader = (): any => {
                   <span className="screen-reader-text">Toggle website search</span>
                   <i className=" icon-magnifier" aria-hidden="true" role="img"></i>
                 </a>
-              </li>
+              </li> */}
             </ul>
             <div id="mobile-menu-search" className="clr">
               <form
