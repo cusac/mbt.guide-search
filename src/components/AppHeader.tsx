@@ -113,7 +113,7 @@ const AppHeader = (): any => {
           <div id="site-logo" className="clr" itemType="https://schema.org/Brand">
             <div id="site-logo-inner" className="clr">
               <a
-                href="https://www.my-big-toe.com/en/"
+                href="https://www.my-big-toe.com/"
                 className="custom-logo-link"
                 rel="home"
                 aria-current="page"
@@ -360,79 +360,80 @@ const AppHeader = (): any => {
                       />
                     </span>
                   </a>
+
                   <ul className="sub-menu" style={{ opacity: 0, visibility: 'hidden' }}>
                     <li
                       id="menu-item-281"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-281"
                     >
                       <a
-                        href="https://www.my-big-toe.com/en/explore/video-search-tools/"
+                        href="https://www.my-big-toe.com/explore/video-search-tools/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Videos &amp; Search Tools</span>
                       </a>
-                    </li>{' '}
+                    </li>
                     <li
                       id="menu-item-323"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"
                     >
                       <a
-                        href="https://www.my-big-toe.com/en/explore/books-audiobooks/"
+                        href="https://www.my-big-toe.com/explore/my-big-toe-trilogy"
                         className="menu-link"
                       >
-                        <span className="text-wrap">Books &amp; Audiobooks</span>
+                        <span className="text-wrap">My Big TOE Trilogy</span>
                       </a>
-                    </li>{' '}
+                    </li>
                     <li
                       id="menu-item-17376"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-17376"
                     >
                       <a
-                        href="https://www.my-big-toe.com/en/explore/my-big-toe-podcast/"
+                        href="https://www.my-big-toe.com/explore/my-big-toe-podcast/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Podcast</span>
                       </a>
-                    </li>{' '}
+                    </li>
                     <li
                       id="menu-item-4649"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4649"
                     >
                       <a
-                        href="https://www.my-big-toe.com/en/explore/interviews-conversations/"
+                        href="https://www.my-big-toe.com/explore/interviews-conversations/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Interviews &amp; Conversations</span>
                       </a>
-                    </li>{' '}
+                    </li>
                     <li
                       id="menu-item-4669"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4669"
                     >
                       <a
-                        href="https://www.my-big-toe.com/en/explore/workshops-lectures/"
+                        href="https://www.my-big-toe.com/explore/workshops-lectures/"
                         className="menu-link"
                       >
-                        <span className="text-wrap">Workshops &amp; Lectures</span>
+                        <span className="text-wrap">Workshops &amp; Lectures Videos</span>
                       </a>
-                    </li>{' '}
+                    </li>
                     <li
                       id="menu-item-17354"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-17354"
                     >
                       <a
-                        href="https://www.my-big-toe.com/en/explore/applying-my-big-toe-daily-life/"
+                        href="https://www.my-big-toe.com/explore/applying-my-big-toe-daily-life/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Daily-Life Applications</span>
                       </a>
-                    </li>{' '}
+                    </li>
                     <li
                       id="menu-item-6417"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6417"
                     >
                       <a
-                        href="https://www.my-big-toe.com/en/explore/resources-other-languages/"
+                        href="https://www.my-big-toe.com/explore/resources-other-languages/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Resources in Other Languages</span>
@@ -643,7 +644,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1988"
                     >
                       <a
-                        href="https://www.my-big-toe.com/en/contribute-donations/"
+                        href="https://www.my-big-toe.com/contribute/donations/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Donate</span>
@@ -654,7 +655,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5095"
                     >
                       <a
-                        href="https://www.my-big-toe.com/en/support-mbt-volunteering/"
+                        href="https://www.my-big-toe.com/contribute/volunteering/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Volunteer</span>
@@ -772,9 +773,7 @@ const AppHeader = (): any => {
                 </a>
                 <ul className="sub-menu">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-274">
-                    <a href="https://www.my-big-toe.com/en/theory/overview-of-my-big-toe/">
-                      Overview
-                    </a>
+                    <a href="https://www.my-big-toe.com/theory/overview-of-my-big-toe/">Overview</a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18141">
                     <a href="https://www.my-big-toe.com/en/theory/philosophical-foundations/">
@@ -805,6 +804,7 @@ const AppHeader = (): any => {
                 <a href="#">
                   Explore<span className="dropdown-toggle" tabIndex={0}></span>
                 </a>
+
                 <ul className="sub-menu">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-281">
                     <a href="https://www.my-big-toe.com/en/explore/video-search-tools/">
@@ -896,10 +896,10 @@ const AppHeader = (): any => {
                 </a>
                 <ul className="sub-menu">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1988">
-                    <a href="https://www.my-big-toe.com/en/contribute-donations/">Donate</a>
+                    <a href="https://www.my-big-toe.com/contribute/donations/">Donate</a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5095">
-                    <a href="https://www.my-big-toe.com/en/support-mbt-volunteering/">Volunteer</a>
+                    <a href="https://www.my-big-toe.com/contribute/volunteering/">Volunteer</a>
                   </li>
                 </ul>
               </li>
