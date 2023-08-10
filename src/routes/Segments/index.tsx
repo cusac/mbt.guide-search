@@ -211,15 +211,18 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
         <Grid>
           <Grid.Row>
             <Grid.Column width={16}>
-              <Image
-                style={{
-                  width: '100%',
-                  height: '200px',
-                  transform: 'scale(1.5)',
-                  marginBottom: '50px',
-                }}
-                src={timage}
-              ></Image>
+              <div style={{ position: 'relative' }}>
+                <Image
+                  style={{
+                    width: '100%',
+                    height: '200px',
+                    transform: 'scale(1.5)',
+                    marginBottom: '50px',
+                  }}
+                  src={timage}
+                ></Image>
+                <div className="image-header">Video Search Tool</div>
+              </div>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>

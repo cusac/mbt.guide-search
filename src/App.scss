@@ -346,6 +346,18 @@ body {
   background-color: #ddd;
 }
 
+.image-header {
+  position: absolute;
+  top: 60%;
+  // left: 12%;
+  padding-left: 350px;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0); /* or any color that contrasts with your image */
+  font-size: 40px; /* or any size you prefer */
+  font-weight: 800;
+  text-align: center;
+}
+
 // ******************************************************
 // HEADER UI
 // ******************************************************

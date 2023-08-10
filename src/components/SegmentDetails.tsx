@@ -12,10 +12,12 @@ const SegmentDetails = ({ segment }: { segment: Segment }) => {
 
   const isTablet = useMediaQuery({ maxWidth: mediaBreakpoints.tablet });
 
-  const segmentTags = ((segment.tags as SegmentTag[]) || []).map(tag => {
-    tag.tag.name = tag.tag.name.toLowerCase().trim();
-    return tag;
-  });
+  const segmentTags = ((segment.tags as SegmentTag[]) || [])
+    .filter(tag => !!tag.tag)
+    .map(tag => {
+      tag.tag.name = tag.tag.name.toLowerCase().trim();
+      return tag;
+    });
 
   return (
     <div>

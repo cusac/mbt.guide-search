@@ -113,7 +113,7 @@ const AppHeader = (): any => {
           <div id="site-logo" className="clr" itemType="https://schema.org/Brand">
             <div id="site-logo-inner" className="clr">
               <a
-                href="https://thomasc251.sg-host.com/en/"
+                href="https://www.my-big-toe.com/en/"
                 className="custom-logo-link"
                 rel="home"
                 aria-current="page"
@@ -121,11 +121,11 @@ const AppHeader = (): any => {
                 <img
                   width="385"
                   // height="118"
-                  src="https://thomasc251.sg-host.com/wp-content/uploads/2023/05/A-Big-Picture-Theory-of-Everything-by-Tom-Campbell-black-full-size.png"
+                  src="https://www.my-big-toe.com/wp-content/uploads/2023/05/A-Big-Picture-Theory-of-Everything-by-Tom-Campbell-black-full-size.png"
                   className="custom-logo"
                   alt="My Big TOE"
                   decoding="async"
-                  srcSet="https://thomasc251.sg-host.com/wp-content/uploads/2023/05/A-Big-Picture-Theory-of-Everything-by-Tom-Campbell-black-full-size.png 385w, https://thomasc251.sg-host.com/wp-content/uploads/2023/05/A-Big-Picture-Theory-of-Everything-by-Tom-Campbell-black-full-size-300x92.png 300w"
+                  srcSet="https://www.my-big-toe.com/wp-content/uploads/2023/05/A-Big-Picture-Theory-of-Everything-by-Tom-Campbell-black-full-size.png 385w, https://www.my-big-toe.com/wp-content/uploads/2023/05/A-Big-Picture-Theory-of-Everything-by-Tom-Campbell-black-full-size-300x92.png 300w"
                   sizes="(max-width: 385px) 100vw, 385px"
                 />
               </a>
@@ -176,7 +176,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-15917"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/my-big-toe-new-scientific-model-reality/"
+                        href="https://www.my-big-toe.com/en/about/my-big-toe-new-scientific-model-reality/"
                         className="menu-link"
                       >
                         <span className="text-wrap">My Big TOE</span>
@@ -187,7 +187,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-17619"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/tom-campbell/"
+                        href="https://www.my-big-toe.com/en/about/tom-campbell/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Tom Campbell</span>
@@ -198,7 +198,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-11849"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/quantum-physics-experiments/"
+                        href="https://www.my-big-toe.com/en/about/quantum-physics-experiments/"
                         className="menu-link"
                       >
                         <span className="text-wrap">The Quantum Physics Experiments</span>
@@ -209,7 +209,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-13880"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/how-engage-my-big-toe/"
+                        href="https://www.my-big-toe.com/en/about/how-engage-my-big-toe/"
                         className="menu-link"
                       >
                         <span className="text-wrap">How to Engage My Big TOE</span>
@@ -220,7 +220,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-13840"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/computer-metaphors-terminology/"
+                        href="https://www.my-big-toe.com/en/about/computer-metaphors-terminology/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Computer Metaphors and Terminology</span>
@@ -266,7 +266,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-274"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/overview-of-my-big-toe/"
+                        href="https://www.my-big-toe.com/en/theory/overview-of-my-big-toe/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Overview</span>
@@ -277,7 +277,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18141"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/philosophical-foundations/"
+                        href="https://www.my-big-toe.com/en/theory/philosophical-foundations/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Part 1: Philosophical Foundations</span>
@@ -288,7 +288,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18240"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/core-elements/"
+                        href="https://www.my-big-toe.com/en/theory/core-elements/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Part 2: Core Elements</span>
@@ -299,7 +299,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18306"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/consciousness-evolution/"
+                        href="https://www.my-big-toe.com/en/theory/consciousness-evolution/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Part 3: Consciousness Evolution</span>
@@ -310,7 +310,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18307"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/introductory-videos/"
+                        href="https://www.my-big-toe.com/en/theory/introductory-videos/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Introductory Videos</span>
@@ -320,7 +320,10 @@ const AppHeader = (): any => {
                       id="menu-item-1012"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1012"
                     >
-                      <a href="https://thomasc251.sg-host.com/en/glossary/" className="menu-link">
+                      <a
+                        href="https://www.my-big-toe.com/en/theory/glossary/"
+                        className="menu-link"
+                      >
                         <span className="text-wrap">Glossary</span>
                       </a>
                     </li>
@@ -363,7 +366,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-281"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/video-search-tools/"
+                        href="https://www.my-big-toe.com/en/explore/video-search-tools/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Videos &amp; Search Tools</span>
@@ -374,7 +377,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/cart/books-audiobooks/"
+                        href="https://www.my-big-toe.com/en/explore/books-audiobooks/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Books &amp; Audiobooks</span>
@@ -385,7 +388,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-17376"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/my-big-toe-podcast/"
+                        href="https://www.my-big-toe.com/en/explore/my-big-toe-podcast/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Podcast</span>
@@ -396,7 +399,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4649"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/interviews-conversations/"
+                        href="https://www.my-big-toe.com/en/explore/interviews-conversations/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Interviews &amp; Conversations</span>
@@ -407,7 +410,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4669"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/workshops-lectures/"
+                        href="https://www.my-big-toe.com/en/explore/workshops-lectures/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Workshops &amp; Lectures</span>
@@ -418,7 +421,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-17354"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/applying-my-big-toe-daily-life/"
+                        href="https://www.my-big-toe.com/en/explore/applying-my-big-toe-daily-life/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Daily-Life Applications</span>
@@ -429,7 +432,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6417"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/resources-other-languages/"
+                        href="https://www.my-big-toe.com/en/explore/resources-other-languages/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Resources in Other Languages</span>
@@ -473,7 +476,10 @@ const AppHeader = (): any => {
                       id="menu-item-1996"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1996"
                     >
-                      <a href="https://thomasc251.sg-host.com/en/mbt-events/" className="menu-link">
+                      <a
+                        href="https://www.my-big-toe.com/en/connect/mbt-events/"
+                        className="menu-link"
+                      >
                         <span className="text-wrap">MBT Events</span>
                       </a>
                     </li>{' '}
@@ -481,7 +487,10 @@ const AppHeader = (): any => {
                       id="menu-item-9967"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-9967"
                     >
-                      <a href="https://thomasc251.sg-host.com/en/mbt-forum/" className="menu-link">
+                      <a
+                        href="https://www.my-big-toe.com/en/connect/mbt-forum/"
+                        className="menu-link"
+                      >
                         <span className="text-wrap">MBT Forum</span>
                       </a>
                     </li>{' '}
@@ -490,7 +499,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2015"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/fireside-chats/"
+                        href="https://www.my-big-toe.com/en/connect/fireside-chats/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Fireside Chats</span>
@@ -501,7 +510,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2003"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/social-media/"
+                        href="https://www.my-big-toe.com/en/connect/social-media/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Social Media</span>
@@ -545,7 +554,7 @@ const AppHeader = (): any => {
                       id="menu-item-10197"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10197"
                     >
-                      <a href="https://thomasc251.sg-host.com/en/bookshop/" className="menu-link">
+                      <a href="https://www.my-big-toe.com/en/bookshop/" className="menu-link">
                         <span className="text-wrap">Books</span>
                       </a>
                     </li>{' '}
@@ -554,7 +563,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-12744"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/toms-park-virtual-imaginality-experience/"
+                        href="https://www.my-big-toe.com/en/toms-park-virtual-imaginality-experience/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Tom’s Park</span>
@@ -565,7 +574,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-13866"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/exploring-consciousness-larger-reality/"
+                        href="https://www.my-big-toe.com/en/exploring-consciousness-larger-reality/"
                         className="menu-link"
                       >
                         <span className="text-wrap">
@@ -578,7 +587,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-14454"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/shop-binaural-beats/"
+                        href="https://www.my-big-toe.com/en/shop-binaural-beats/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Binaural Beats</span>
@@ -589,7 +598,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-12746"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/shop-mbt-merchandise/"
+                        href="https://www.my-big-toe.com/en/shop-mbt-merchandise/"
                         className="menu-link"
                       >
                         <span className="text-wrap">MBT Merchandise</span>
@@ -634,7 +643,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1988"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/contribute-donations/"
+                        href="https://www.my-big-toe.com/en/contribute-donations/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Donate</span>
@@ -645,7 +654,7 @@ const AppHeader = (): any => {
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5095"
                     >
                       <a
-                        href="https://thomasc251.sg-host.com/en/support-mbt-volunteering/"
+                        href="https://www.my-big-toe.com/en/support-mbt-volunteering/"
                         className="menu-link"
                       >
                         <span className="text-wrap">Volunteer</span>
@@ -654,7 +663,7 @@ const AppHeader = (): any => {
                   </ul>
                 </li>
                 {/* <li className="woo-menu-icon wcmenucart-toggle-cart toggle-cart-widget">
-                  <a href="https://thomasc251.sg-host.com/en/cart/" className="wcmenucart">
+                  <a href="https://www.my-big-toe.com/en/cart/" className="wcmenucart">
                     <span className="wcmenucart-count">
                       <i className=" icon-handbag" aria-hidden="true" role="img"></i>
                       <span className="wcmenucart-details count">0</span>
@@ -664,7 +673,7 @@ const AppHeader = (): any => {
 
                 <li className="search-toggle-li">
                   <a
-                    href="https://thomasc251.sg-host.com/en/#/"
+                    href="https://www.my-big-toe.com/en/#/"
                     className="site-search-toggle search-dropdown-toggle"
                   >
                     <span className="screen-reader-text">T</span>
@@ -678,7 +687,7 @@ const AppHeader = (): any => {
                   role="search"
                   method="get"
                   className="searchform"
-                  action="https://thomasc251.sg-host.com/en/"
+                  action="https://www.my-big-toe.com/en/"
                 >
                   <input
                     aria-label="Insert search query"
@@ -699,7 +708,7 @@ const AppHeader = (): any => {
           {/* <!-- #site-navigation-wrap --> */}
 
           <div className="oceanwp-mobile-menu-icon clr mobile-right">
-            <a href="https://thomasc251.sg-host.com/en/cart/" className="wcmenucart">
+            <a href="https://www.my-big-toe.com/en/cart/" className="wcmenucart">
               <span className="wcmenucart-count">
                 <i className=" icon-handbag" aria-hidden="true" role="img"></i>
                 <span className="wcmenucart-details count">0</span>
@@ -707,7 +716,7 @@ const AppHeader = (): any => {
             </a>
 
             <a
-              href="https://thomasc251.sg-host.com/en/#/mobile-menu-toggle"
+              href="https://www.my-big-toe.com/en/#/mobile-menu-toggle"
               className="mobile-menu"
               aria-label="Mobile Menu"
             >
@@ -733,25 +742,25 @@ const AppHeader = (): any => {
                 </a>
                 <ul className="sub-menu">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-15917">
-                    <a href="https://thomasc251.sg-host.com/en/my-big-toe-new-scientific-model-reality/">
+                    <a href="https://www.my-big-toe.com/en/about/my-big-toe-new-scientific-model-reality/">
                       My Big TOE
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-17619">
-                    <a href="https://thomasc251.sg-host.com/en/tom-campbell/">Tom Campbell</a>
+                    <a href="https://www.my-big-toe.com/en/about/tom-campbell/">Tom Campbell</a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-11849">
-                    <a href="https://thomasc251.sg-host.com/en/quantum-physics-experiments/">
+                    <a href="https://www.my-big-toe.com/en/about/quantum-physics-experiments/">
                       The Quantum Physics Experiments
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-13880">
-                    <a href="https://thomasc251.sg-host.com/en/how-engage-my-big-toe/">
+                    <a href="https://www.my-big-toe.com/en/about/how-engage-my-big-toe/">
                       How to Engage My Big TOE
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-13840">
-                    <a href="https://thomasc251.sg-host.com/en/computer-metaphors-terminology/">
+                    <a href="https://www.my-big-toe.com/en/about/computer-metaphors-terminology/">
                       Computer Metaphors and Terminology
                     </a>
                   </li>
@@ -763,30 +772,32 @@ const AppHeader = (): any => {
                 </a>
                 <ul className="sub-menu">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-274">
-                    <a href="https://thomasc251.sg-host.com/en/overview-of-my-big-toe/">Overview</a>
+                    <a href="https://www.my-big-toe.com/en/theory/overview-of-my-big-toe/">
+                      Overview
+                    </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18141">
-                    <a href="https://thomasc251.sg-host.com/en/philosophical-foundations/">
+                    <a href="https://www.my-big-toe.com/en/theory/philosophical-foundations/">
                       Part 1: Philosophical Foundations
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18240">
-                    <a href="https://thomasc251.sg-host.com/en/core-elements/">
+                    <a href="https://www.my-big-toe.com/en/theory/core-elements/">
                       Part 2: Core Elements
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18306">
-                    <a href="https://thomasc251.sg-host.com/en/consciousness-evolution/">
+                    <a href="https://www.my-big-toe.com/en/theory/consciousness-evolution/">
                       Part 3: Consciousness Evolution
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18307">
-                    <a href="https://thomasc251.sg-host.com/en/introductory-videos/">
+                    <a href="https://www.my-big-toe.com/en/theory/introductory-videos/">
                       Introductory Videos
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1012">
-                    <a href="https://thomasc251.sg-host.com/en/glossary/">Glossary</a>
+                    <a href="https://www.my-big-toe.com/en/theory/glossary/">Glossary</a>
                   </li>
                 </ul>
               </li>
@@ -796,35 +807,35 @@ const AppHeader = (): any => {
                 </a>
                 <ul className="sub-menu">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-281">
-                    <a href="https://thomasc251.sg-host.com/en/video-search-tools/">
+                    <a href="https://www.my-big-toe.com/en/explore/video-search-tools/">
                       Videos &amp; Search Tools
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-323">
-                    <a href="https://thomasc251.sg-host.com/en/cart/books-audiobooks/">
+                    <a href="https://www.my-big-toe.com/en/explore/books-audiobooks/">
                       Books &amp; Audiobooks
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-17376">
-                    <a href="https://thomasc251.sg-host.com/en/my-big-toe-podcast/">Podcast</a>
+                    <a href="https://www.my-big-toe.com/en/explore/my-big-toe-podcast/">Podcast</a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4649">
-                    <a href="https://thomasc251.sg-host.com/en/interviews-conversations/">
+                    <a href="https://www.my-big-toe.com/en/explore/interviews-conversations/">
                       Interviews &amp; Conversations
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4669">
-                    <a href="https://thomasc251.sg-host.com/en/workshops-lectures/">
+                    <a href="https://www.my-big-toe.com/en/explore/workshops-lectures/">
                       Workshops &amp; Lectures
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-17354">
-                    <a href="https://thomasc251.sg-host.com/en/applying-my-big-toe-daily-life/">
+                    <a href="https://www.my-big-toe.com/en/explore/applying-my-big-toe-daily-life/">
                       Daily-Life Applications
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6417">
-                    <a href="https://thomasc251.sg-host.com/en/resources-other-languages/">
+                    <a href="https://www.my-big-toe.com/en/explore/resources-other-languages/">
                       Resources in Other Languages
                     </a>
                   </li>
@@ -836,16 +847,18 @@ const AppHeader = (): any => {
                 </a>
                 <ul className="sub-menu">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1996">
-                    <a href="https://thomasc251.sg-host.com/en/mbt-events/">MBT Events</a>
+                    <a href="https://www.my-big-toe.com/en/connect/mbt-events/">MBT Events</a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-9967">
-                    <a href="https://thomasc251.sg-host.com/en/mbt-forum/">MBT Forum</a>
+                    <a href="https://www.my-big-toe.com/en/connect/mbt-forum/">MBT Forum</a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2015">
-                    <a href="https://thomasc251.sg-host.com/en/fireside-chats/">Fireside Chats</a>
+                    <a href="https://www.my-big-toe.com/en/connect/fireside-chats/">
+                      Fireside Chats
+                    </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2003">
-                    <a href="https://thomasc251.sg-host.com/en/social-media/">Social Media</a>
+                    <a href="https://www.my-big-toe.com/en/connect/social-media/">Social Media</a>
                   </li>
                 </ul>
               </li>
@@ -855,25 +868,23 @@ const AppHeader = (): any => {
                 </a>
                 <ul className="sub-menu">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10197">
-                    <a href="https://thomasc251.sg-host.com/en/bookshop/">Books</a>
+                    <a href="https://www.my-big-toe.com/en/bookshop/">Books</a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-12744">
-                    <a href="https://thomasc251.sg-host.com/en/toms-park-virtual-imaginality-experience/">
+                    <a href="https://www.my-big-toe.com/en/toms-park-virtual-imaginality-experience/">
                       Tom’s Park
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-13866">
-                    <a href="https://thomasc251.sg-host.com/en/exploring-consciousness-larger-reality/">
+                    <a href="https://www.my-big-toe.com/en/exploring-consciousness-larger-reality/">
                       Exploring Consciousness and the Larger Reality
                     </a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-14454">
-                    <a href="https://thomasc251.sg-host.com/en/shop-binaural-beats/">
-                      Binaural Beats
-                    </a>
+                    <a href="https://www.my-big-toe.com/en/shop-binaural-beats/">Binaural Beats</a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-12746">
-                    <a href="https://thomasc251.sg-host.com/en/shop-mbt-merchandise/">
+                    <a href="https://www.my-big-toe.com/en/shop-mbt-merchandise/">
                       MBT Merchandise
                     </a>
                   </li>
@@ -885,18 +896,16 @@ const AppHeader = (): any => {
                 </a>
                 <ul className="sub-menu">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1988">
-                    <a href="https://thomasc251.sg-host.com/en/contribute-donations/">Donate</a>
+                    <a href="https://www.my-big-toe.com/en/contribute-donations/">Donate</a>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5095">
-                    <a href="https://thomasc251.sg-host.com/en/support-mbt-volunteering/">
-                      Volunteer
-                    </a>
+                    <a href="https://www.my-big-toe.com/en/support-mbt-volunteering/">Volunteer</a>
                   </li>
                 </ul>
               </li>
 
               {/* <li className="woo-menu-icon wcmenucart-toggle-cart toggle-cart-widget">
-                <a href="https://thomasc251.sg-host.com/en/cart/" className="wcmenucart">
+                <a href="https://www.my-big-toe.com/en/cart/" className="wcmenucart">
                   <span className="wcmenucart-count">
                     <i className=" icon-handbag" aria-hidden="true" role="img"></i>
                     <span className="wcmenucart-details count">0</span>
@@ -906,7 +915,7 @@ const AppHeader = (): any => {
 
               {/* <li className="search-toggle-li">
                 <a
-                  href="https://thomasc251.sg-host.com/en/#/"
+                  href="https://www.my-big-toe.com/en/#/"
                   className="site-search-toggle search-dropdown-toggle"
                 >
                   <span className="screen-reader-text">Toggle website search</span>
@@ -918,7 +927,7 @@ const AppHeader = (): any => {
               <form
                 aria-label="Search this website"
                 method="get"
-                action="https://thomasc251.sg-host.com/en/"
+                action="https://www.my-big-toe.com/en/"
                 className="mobile-searchform"
               >
                 <input
