@@ -3,7 +3,7 @@ import { Association, Crud } from '../utils/restful-resource-utility';
 
 export default {
   // serverURI: 'http://localhost:8080',
-  serverURI: process.env.REACT_APP_SERVER_URI,
+  serverURI: process.env.REACT_APP_SERVER_URI || 'http://localhost:8080',
   // websocketURI: 'ws://localhost:8080',
   // serverURI: 'http://192.168.86.42:8080',
   // websocketURI: 'ws://192.168.86.42:8080',

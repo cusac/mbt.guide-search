@@ -1,4 +1,4 @@
-import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
+import axios, { AxiosPromise, AxiosRequestConfig, Method } from 'axios';
 import { StoreBundle } from 'store';
 import { RESPONSE_MESSAGES } from '../config';
 import { AxiosResponseGeneric } from 'types';
@@ -18,7 +18,7 @@ export const initHttpClientService = (storeBundle: StoreBundle): void => {
 export const httpClient: HttpClient = {
   get: function(url: string, params?: any, options?: any) {
     let config: AxiosRequestConfig = {
-      method: 'GET',
+      method: 'GET' as Method,
       url: url,
       params: params,
     };
@@ -41,8 +41,8 @@ export const httpClient: HttpClient = {
   },
 
   put: function(url: string, payload?: any, options?: any) {
-    let config = {
-      method: 'PUT',
+    let config: AxiosRequestConfig = {
+      method: 'PUT' as Method,
       url: url,
       data: payload,
     };
@@ -66,7 +66,7 @@ export const httpClient: HttpClient = {
 
   post: function(url: string, payload?: any, options?: any) {
     let config: AxiosRequestConfig = {
-      method: 'POST',
+      method: 'POST' as Method,
       url: url,
       data: payload,
     };
@@ -89,8 +89,8 @@ export const httpClient: HttpClient = {
   },
 
   delete: function(url: string, payload?: any, options?: any) {
-    let config = {
-      method: 'DELETE',
+    let config: AxiosRequestConfig = {
+      method: 'DELETE' as Method,
       url: url,
       data: payload,
     };
@@ -113,15 +113,17 @@ export const httpClient: HttpClient = {
   },
 };
 
-const updateTokensFromHeaders = (headers: {
-  'x-access-token': string;
-  'x-refresh-token': string;
-}) => {
-  const tokens = {
-    accessToken: headers['x-access-token'],
-    refreshToken: headers['x-refresh-token'],
-  };
-  store.storeDispatch(store.updateTokens(tokens));
+const updateTokensFromHeaders = (headers: any) => {
+  const accessToken = headers['x-access-token'];
+  const refreshToken = headers['x-refresh-token'];
+
+  if (accessToken && refreshToken) {
+    const tokens = {
+      accessToken,
+      refreshToken,
+    };
+    store.storeDispatch(store.updateTokens(tokens));
+  }
 };
 
 export default httpClient;

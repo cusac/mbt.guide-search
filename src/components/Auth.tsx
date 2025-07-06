@@ -25,7 +25,7 @@ const Auth = ({ setLoading }: { setLoading: (arg0: boolean) => void }): any => {
         try {
           emailVerified && (await dispatch(login({ idToken, displayName })));
         } catch (err) {
-          if (err.data.message === 'Account is inactive.') {
+          if (err?.data?.message === 'Account is inactive.') {
             emailVerified = false;
             toastError('There was an error logging into your account.', err);
           } else {
