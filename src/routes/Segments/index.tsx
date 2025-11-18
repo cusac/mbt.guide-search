@@ -18,15 +18,19 @@ import {
   setShowSearchbar,
   useAppDispatch,
   refreshSegmentList,
+  navigateToPage,
+  updateSearchParams,
 } from 'store';
 import * as components from '../../components';
 import LandingPage from '../../components/LandingPage';
 import { mediaBreakpoints } from '../../components/Media';
 import SegmentViewer from '../../components/SegmentViewer';
+import PaginationControls from '../../components/PaginationControls';
+import ResultsHeader from '../../components/ResultsHeader';
 import * as services from '../../services';
 import * as utils from '../../utils';
 import { captureAndLog, toastError } from '../../utils';
-import { Segment } from 'types';
+import { Segment, createSearchParams } from 'types';
 import ShareBar from 'components/ShareBar';
 
 const { Grid, SegmentList, Loading, Searchbar } = components;
@@ -54,6 +58,12 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
   const hasSearched = useSelector((state: RootState) => state.video.hasSearched);
   const segmentListTrigger = useSelector((state: RootState) => state.video.segmentListTrigger);
 
+  // NEW: Enhanced search state selectors for API v2.0
+  const searchParams = useSelector((state: RootState) => state.video.searchParams);
+  const pagination = useSelector((state: RootState) => state.video.pagination);
+  const isSearching = useSelector((state: RootState) => state.video.isSearching);
+  const showAdvancedFilters = useSelector((state: RootState) => state.video.showAdvancedFilters);
+
   const dispatch = useAppDispatch();
 
   const query = useQuery();
@@ -71,6 +81,23 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
 
   const shuffleSegments = () => {
     dispatch(refreshSegmentList({}));
+  };
+
+  // NEW: Pagination handlers
+  const handlePageChange = (page: number) => {
+    dispatch(navigateToPage(page));
+  };
+
+  const handleLimitChange = (limit: number) => {
+    dispatch(
+      updateSearchParams({
+        params: { limit, page: 1 }, // Reset to page 1 when changing limit
+      })
+    );
+    // Trigger search if we have a search term
+    if (searchText && searchParams) {
+      dispatch(searchSegments({ ...searchParams, limit, page: 1 }));
+    }
   };
 
   async function fetchRandomSegments() {
@@ -118,7 +145,8 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
 
     if (queryText) {
       dispatch(setSearchText({ searchText: queryText }));
-      dispatch(searchSegments({ term: queryText }));
+      // Use new search format with enhanced parameters
+      dispatch(searchSegments(createSearchParams({ term: queryText })));
     }
 
     // Hardcode a default segment for now
@@ -144,7 +172,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
 
     if (queryText && queryText !== searchTextQuery) {
       setSearchTextQuery(queryText);
-      dispatch(searchSegments({ term: queryText }));
+      dispatch(searchSegments(createSearchParams({ term: queryText })));
     }
   }, [searchText]);
 
@@ -205,6 +233,16 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
     segmentId && fetchSelectedSegment();
   }, [segmentId]);
 
+  // Helper function to check if filters are applied
+  const hasFiltersApplied = () => {
+    if (!searchParams) return false;
+    return !!(
+      searchParams.dateFrom ||
+      searchParams.dateTo ||
+      (searchParams.sortBy && searchParams.sortBy !== 'relevance')
+    );
+  };
+
   return (
     <div>
       <div>
@@ -262,6 +300,20 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
                 Shuffle Segments
                 <Icon className={'shuffle'} />
               </Button>
+
+              {/* NEW: Enhanced search results header */}
+              {hasSearched && searchText && (
+                <ResultsHeader
+                  totalResults={pagination?.totalResults || 0}
+                  currentPage={pagination?.page || 1}
+                  totalPages={pagination?.totalPages || 1}
+                  searchTerm={searchText}
+                  sortBy={searchParams?.sortBy || 'relevance'}
+                  hasFilters={hasFiltersApplied()}
+                  isLoading={isSearching}
+                />
+              )}
+
               <Divider
                 horizontal
                 style={{
@@ -271,6 +323,7 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
               >
                 {segmentListHeader}
               </Divider>
+
               {!loadingSegments ? (
                 <div>
                   {segments && segments.length > 0 ? (
@@ -281,6 +334,16 @@ const Segments = ({ segmentId }: { segmentId?: string }) => {
                           segment && selectSegment(segment.segmentId)
                         }
                       />
+
+                      {/* NEW: Pagination controls for search results */}
+                      {hasSearched && pagination && pagination.totalPages > 1 && (
+                        <PaginationControls
+                          pagination={pagination}
+                          onPageChange={handlePageChange}
+                          onLimitChange={handleLimitChange}
+                          isLoading={isSearching}
+                        />
+                      )}
                     </div>
                   ) : (
                     <h2 style={{ color: 'black' }}>

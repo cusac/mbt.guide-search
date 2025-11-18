@@ -108,7 +108,7 @@ export const login = ({
     const { data } = await loginCall({ idToken, email, password, displayName });
     response = data;
   } catch (err) {
-    dispatch(loginFailure(err));
+    dispatch(loginFailure(err as Error));
   }
   if (response !== undefined) {
     dispatch(loginSuccess(response));
@@ -152,7 +152,7 @@ export const logout = (): AsyncAppThunk => async (dispatch, getState) => {
     dispatch(useRefreshToken());
     await logoutCall();
   } catch (err) {
-    dispatch(logoutFailure(err));
+    dispatch(logoutFailure(err as Error));
   }
   dispatch(logoutSuccess());
 };

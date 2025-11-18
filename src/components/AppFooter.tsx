@@ -20,6 +20,4 @@ const AppFooter = (): any => {
   );
 };
 
-AppFooter.defaultProps = {};
-
 export default AppFooter;

@@ -5,6 +5,7 @@ export * from './model/permission.type';
 export * from './model/video.type';
 export * from './model/segment.type';
 export * from './model/tag.type';
+export * from './model/search.type';
 export * from './model.type';
 export * from './youtube.type';
 export * from './misc.type';

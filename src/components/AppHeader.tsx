@@ -932,7 +932,6 @@ const AppHeader = (): any => {
               >
                 <input
                   aria-label="Insert search query"
-                  value=""
                   className="field"
                   id="ocean-mobile-search-2"
                   type="search"
@@ -952,7 +951,5 @@ const AppHeader = (): any => {
     </div>
   );
 };
-
-AppHeader.defaultProps = {};
 
 export default AppHeader;
